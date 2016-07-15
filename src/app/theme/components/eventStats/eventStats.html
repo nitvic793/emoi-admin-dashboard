@@ -1,0 +1,18 @@
+<div class="panel full-invisible with-scroll tree-panel" zoom-in>
+  <div class="green-1">
+    <div class="panel-options">
+      <a href="" class="white right" ng-click="closeStats()">
+        <span class="glyphicon glyphicon-remove"></span> Close
+      </a>
+    </div>
+    <div class="custom-panel-header">
+      <h1>Event Stats</h1>
+    </div>
+  </div>
+  <div class="panel-body body-green-1">
+    <div class="row">
+      <canvas id="line" class="chart chart-line" chart-data="eventStatsData" chart-labels="eventlabels"
+              chart-legend="false" chart-series="eventseries" chart-click="changeData"></canvas>
+    </div>
+  </div>
+</div>

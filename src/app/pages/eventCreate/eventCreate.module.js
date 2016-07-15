@@ -13,7 +13,7 @@
     $stateProvider
         .state('eventCreate', {
           url: '/eventCreate',
-          title: 'Event',
+          title: 'Create Event',
           templateUrl: 'app/pages/eventCreate/eventCreate.html',
           controller: 'EventCreateCtrl',
           sidebarMeta:{

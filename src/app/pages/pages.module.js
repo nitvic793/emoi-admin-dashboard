@@ -16,7 +16,10 @@
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
-    'BlurAdmin.pages.eventCreate'
+    'BlurAdmin.pages.eventCreate',
+    'BlurAdmin.pages.eventList',
+    'BlurAdmin.pages.eventStats',
+    'BlurAdmin.pages.deviceList'
   ])
       .config(routeConfig);
 

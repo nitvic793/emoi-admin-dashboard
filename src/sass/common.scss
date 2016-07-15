@@ -1,3 +1,36 @@
 @import 'theme/conf/mixins';
 @import 'theme/conf/colorScheme/mint';
 @import 'theme/conf/variables';
+
+.green-1{
+    background-color: green;
+    color: white;
+}
+
+.panel-options{
+    padding: 20px;
+    padding-left:20px;
+    padding-top:10px;
+    height: 60px;
+    }
+
+.custom-panel-header{
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    padding-bottom: 5px;
+    padding-left:20px;
+}
+
+.body-green-1{
+    background-color: white;
+}
+
+.white{
+    color:white;
+}
+
+.right{
+    text-align: right;
+    float: right;
+}
+
+

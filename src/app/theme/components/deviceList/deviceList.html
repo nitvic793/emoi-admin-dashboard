@@ -1,0 +1,37 @@
+<div class="panel full-invisible with-scroll tree-panel" zoom-in>
+  <div class="green-1">
+    <div class="panel-options">
+      <a href="" class="white" ng-click="addEventPage()">
+        <span class="glyphicon glyphicon-plus"></span> Add
+      </a>
+      <a href="" class="white right" ng-click="removeEvent()">
+        <span class="glyphicon glyphicon-remove"></span> Remove
+      </a>
+    </div>
+    <div class="custom-panel-header">
+      <h1>Device List</h1>
+    </div>
+  </div>
+  <div class="panel-body body-green-1">
+    <div class="row">
+      <table class="table table-hover">
+        <thead>
+          <tr class="black-muted-bg">
+            <th>Device</th>
+            <th class="align-right">Status</th>
+            <th class="align-right">Event</th>
+            <th class="align-right"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in metricsTableData" class="no-top-border" ng-click="onEventItemClick(item)">
+            <td ng-class="nowrap">{{item.device}}</td>
+            <td class="align-right">{{item.status}}</td>
+            <td class="align-right">{{item.event}}</td>
+            <td class="align-right">{{item.isRunning}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

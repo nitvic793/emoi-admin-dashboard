@@ -1,20 +1,41 @@
- <div class="col-md-6">
-   
-    <div ba-panel ba-panel-title="Event Create" ba-panel-class="with-scroll tree-panel">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="control-side text-center">
-            <div>
-              <button class="btn btn-primary" ng-click="addNewNode()">Add</button>
-            </div>
-            <div>
-              <button class="btn btn-primary" ng-click="RemoveEventCreate()">Refresh</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-8">
-          <div js-tree="basicConfig" ng-model="treeData" should-apply="applyModelChanges()" tree="basicTree" tree-events="ready:readyCB"></div>
-        </div>
-      </div>
+<div class="panel full-invisible with-scroll" zoom-in>
+  <div class="green-1">
+    <div class="panel-options">
+
+    </div>
+    <div class="custom-panel-header">
+      <h1>Add Event</h1>
     </div>
   </div>
+  <div class="panel-body body-green-1">
+    <div class="row">
+      <div class="col-md-8">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Event Name</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Event Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Event Code</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Event Code">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Start Time</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Start Time">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">End Time</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="End Time">
+          </div>
+          <br>
+          <a href="" ng-click="createEvent()"> <span class="glyphicon glyphicon-ok"></span>Create</a>
+          <div>
+            <a href="" ng-click="RemoveEventCreate()"> <span class="glyphicon glyphicon-remove"></span>Close</a>
+          </div>
+        </form>
+      </div>
+      <br>
+
+    </div>
+  </div>
+</div>
