@@ -6,10 +6,10 @@
   'use strict';
 
   angular.module('BlurAdmin.theme.components')
-    .directive('eventlist', eventlist);
+    .directive('eventlist', ['$location','$state','dataServices',eventlist]);
 
   /** @ngInject */
-  function eventlist($location, $state) {
+  function eventlist($location, $state, data) {
     return {
       restrict: 'E',
       templateUrl: 'app/theme/components/eventList/eventList.html',
@@ -25,20 +25,7 @@
           $scope.$broadcast('add-event-create');
         };
         
-        $scope.metricsTableData = [
-          {
-            event: 'Electronic Expo',
-            startTime: '1st Dec 2016, 9:00PM',
-            endTime: '1st Dec 2016, 11:00PM',
-            status: 'Waiting'
-          },
-          {
-            event: 'Medical conferences',
-            startTime: '1st Dec 2016, 9:00PM',
-            endTime: '1st Dec 2016, 11:00PM',
-            status: 'Waiting'
-          },
-        ];
+        $scope.metricsTableData = data.eventList;
       }
 
     };

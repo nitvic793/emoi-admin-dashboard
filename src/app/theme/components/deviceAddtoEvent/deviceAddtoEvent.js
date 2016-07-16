@@ -6,15 +6,15 @@
   'use strict';
 
   angular.module('BlurAdmin.theme.components')
-    .directive('devicelist', deviceList);
+    .directive('deviceaddtoevent', deviceAddtoEvent);
 
   /** @ngInject */
-  function deviceList($location, $state) {
+  function deviceAddtoEvent($location, $state) {
     return {
       restrict: 'E',
-      templateUrl: 'app/theme/components/deviceList/deviceList.html',
+      templateUrl: 'app/theme/components/deviceAddtoEvent/deviceAddtoEvent.html',
       link: function ($scope, element) {
-        $scope.$on('remove-device-list', function (e) {
+        $scope.$on('remove-device-event', function (e) {
           element.parent().remove();
         });
         $scope.$watch(function () {
@@ -23,6 +23,10 @@
         
         $scope.addEventPage = function openCreateEventPage() {
           $scope.$broadcast('add-event-create');
+        };
+        
+        $scope.closeDeviceEvent = function(){
+          $scope.$broadcast('remove-device-event');
         };
         
         $scope.metricsTableData = [
@@ -39,9 +43,7 @@
           },
         ];
         
-        $scope.addDeviceToEvent = function(){
-          $scope.$broadcast('add-device-event');
-        };
+        
       }
 
     };

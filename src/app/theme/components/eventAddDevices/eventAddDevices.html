@@ -1,0 +1,37 @@
+<div class="panel full-invisible with-scroll tree-panel" zoom-in>
+  <div class="{{theme.color}}-1">
+    <div class="panel-options">
+    </div>
+    <a href="" ng-click="closeEventAddDevices()" class="right icon-button-header white"><i class="ion-ios-arrow-back"></i></a>
+    <div class="custom-panel-header">
+      <h1>Devices</h1>
+
+    </div>
+  </div>
+
+
+  <div class="panel-body body-green-1">
+    <div class="row">
+      <div class="col-md-11">
+        <p>Add devices to event</p>
+        <table class="table table-hover">
+          <thead>
+            <tr class="black-muted-bg">
+              <th>Device</th>
+              <th class="align-right"> Add/Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in metricsTableData" class="no-top-border">
+              <td ng-class="nowrap">{{item.device}}</td>
+              <td class="align-right">
+                <switch color="primary" ng-model="item.isRunning"></switch>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

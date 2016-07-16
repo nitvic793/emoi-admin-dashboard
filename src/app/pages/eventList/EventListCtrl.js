@@ -6,11 +6,15 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.eventList')
-    .controller('EventListCtrl', EventListCtrl);
+    .controller('EventListCtrl', ['$scope','dataServices',EventListCtrl]);
 
   /** @ngInject */
-  function EventListCtrl($scope, fileReader, $filter, $uibModal) {
-    $scope.picture = $filter('profilePicture')('Nasta');
+  function EventListCtrl($scope,data) {
+
+    $scope.theme = {
+      color:'green'
+    };
+    
     $scope.addNewNode = function (params) {
       $scope.$broadcast('add-event-detail');
     };
@@ -27,6 +31,7 @@
     };
     
     $scope.onEventItemClick = function(item){
+      data.currentEvent = item;
       $scope.$broadcast('add-event-detail');      
     }
   }

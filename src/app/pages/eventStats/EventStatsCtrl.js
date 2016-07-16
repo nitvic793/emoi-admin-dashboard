@@ -10,7 +10,10 @@
 
   /** @ngInject */
   function EventStatsCtrl($scope, fileReader, $filter, $uibModal) {
-    $scope.picture = $filter('profilePicture')('Nasta');
+    
+    $scope.theme = {
+      color:'yellow'
+    };
     $scope.addNewNode = function (params) {
       $scope.$broadcast('add-event-detail');
     };

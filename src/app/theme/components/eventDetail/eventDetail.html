@@ -1,19 +1,21 @@
 <div class="panel full-invisible with-scroll tree-panel" zoom-in>
-  <div class="green-1">
+  <div class="{{theme.color}}-1">
     <div class="panel-options">
-      <a href="" class="white"><span class="glyphicon glyphicon-facetime-video"></span> Devices</a>
+      <a href="" class="white" ng-click="openEventDevices()"><span class="glyphicon glyphicon-facetime-video"></span> Devices</a>
       <a href="" class="white right" ng-click="openStats()"><span class="glyphicon glyphicon-stats"></span>  Statistics</a>
     </div>
+     <a href="" ng-click = "closeEventDetails()" class="right icon-button-header white"><i class="ion-ios-arrow-back"></i></a>
     <div class="custom-panel-header">
-      <h1>Event Name</h1>
+      <h1>{{event.EventName}}</h1>        
+     
     </div>
   </div>
  
 
   <div class="panel-body body-green-1">
     <div class="row">
-      <div class="col-md-11">
-        <h2>Event Code</h2>
+      <div class="col-md-12">
+        <h2>{{event.EventCode}}</h2>
         <table class="table">
           <thead>
             <tr>
@@ -24,25 +26,23 @@
           </thead>
           <tbody>
             <tr>
-              <td class="align-left">28 July 2016</td>
+              <td class="align-left">{{startDate | date:'d MMM yyyy'}}</td>
               <td></td>
-              <td class="align-right">28 July 2016</td>
+              <td class="align-right">{{endDate | date:'d MMM yyyy'}}</td>
             </tr>
             <tr>
-              <td class="align-left">5:00 PM</td>
+              <td class="align-left">{{startDate | date:'h:mm a'}}</td>
               <td>-</td>
-              <td class="align-right">7:00 PM</td>
+              <td class="align-right">{{endDate | date:'h:mm a'}}</td>
             </tr>
           </tbody>
         </table>
-        <div class="alert bg-info" style="text-align:center">
-          <strong>NOT STARTED</strong>
+        <div class="alert bg-{{statusBox}}" style="text-align:center">
+          <strong>{{status}}</strong>
         </div>
         <canvas id="pie" class="chart chart-pie" chart-legend="true" chart-options="options" chart-data="data" chart-labels="labels"
           chart-click="changeData">
         </canvas>
-      <a href="" class="right" ng-click="close()"><span class="glyphicon glyphicon-remove"></span>Close</a>
-        <i class="icomoon icon-arrow-left-3"></i>
 
       </div>
     </div>

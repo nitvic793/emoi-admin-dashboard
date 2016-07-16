@@ -1,37 +1,46 @@
-<div class="panel full-invisible with-scroll" zoom-in>
-  <div class="green-1">
+<div class="panel full-invisible" zoom-in>
+  <div class="{{theme.color}}-1">
     <div class="panel-options">
 
     </div>
+    <a href="" ng-click="RemoveEventCreate()" class="right icon-button-header white"><i class="ion-ios-arrow-back"></i></a>
+
     <div class="custom-panel-header">
       <h1>Add Event</h1>
     </div>
   </div>
   <div class="panel-body body-green-1">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Event Name</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Event Name">
+            <input type="text" class="form-control" ng-model="newEvent.EventName" placeholder="Event Name">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Event Code</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Event Code">
+            <input type="text" class="form-control" ng-model="newEvent.EventCode" placeholder="Event Code">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Start Time</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Start Time">
+            <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" data-format="yyyy-MM-dd hh:mm:ss" ng-model="newEvent.StartDateTime" placeholder="Start Time" />
+              <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">End Time</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="End Time">
+            <div class='input-group date' id='datetimepicker2'>
+              <input type='text' class="form-control" data-format="yyyy-MM-dd hh:mm:ss" ng-model="newEvent.EndDateTime" placeholder="End Time" />
+              <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
           </div>
           <br>
-          <a href="" ng-click="createEvent()"> <span class="glyphicon glyphicon-ok"></span>Create</a>
-          <div>
-            <a href="" ng-click="RemoveEventCreate()"> <span class="glyphicon glyphicon-remove"></span>Close</a>
-          </div>
+          <a href="" class="right icon-button" ng-click="createEvent()"> <i class="ion-checkmark-circled"></i></a>
         </form>
       </div>
       <br>
@@ -39,3 +48,13 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+             $(function () {
+                $('#datetimepicker2').datetimepicker();
+            });
+
+</script>

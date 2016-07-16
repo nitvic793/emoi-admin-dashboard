@@ -3,7 +3,22 @@
 @import 'theme/conf/variables';
 
 .green-1{
-    background-color: green;
+    background-color: #00B050;
+    color: white;
+}
+
+.red-1{
+    background-color: #FF5050;
+    color: white;
+}
+
+.blue-1{
+    background-color: #00B0F0;
+    color: white;
+}
+
+.yellow-1{
+    background-color: #EEB500;
     color: white;
 }
 
@@ -31,6 +46,20 @@
 .right{
     text-align: right;
     float: right;
+}
+
+.icon-button{
+    width: 20px;
+    height: 20px;
+    font-size: 40px;
+    padding: 10px;
+    margin-right:20px;
+}
+
+.icon-button-header{
+    font-size: 20px;
+    padding: 10px;
+    margin-right:10px;
 }
 
 

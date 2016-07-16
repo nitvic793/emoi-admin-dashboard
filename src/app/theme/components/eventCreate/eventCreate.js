@@ -6,22 +6,28 @@
   'use strict';
 
   angular.module('BlurAdmin.theme.components')
-      .directive('eventcreate', eventCreate);
+    .directive('eventcreate', ['$location', '$state', 'dataServices', eventCreate]);
 
   /** @ngInject */
-  function eventCreate($location, $state) {
+  function eventCreate($location, $state, data) {
     return {
       restrict: 'E',
       templateUrl: 'app/theme/components/eventCreate/eventCreate.html',
-      link: function($scope, $element) {
-        $scope.$on('remove-event-create', function(e){
+      link: function ($scope, $element) {
+        $scope.$on('remove-event-create', function (e) {
           $element.parent().remove();
-         // $element.remove();
+          // $element.remove();
         });
         $scope.$watch(function () {
           $scope.activePageTitle = $state.current.title;
         });
+        $scope.newEvent = {};
         $scope.createEvent = function name(params) {
+          $scope.newEvent.StartDateTime = $('#datetimepicker1').find("input").val();
+          $scope.newEvent.EndDateTime = $('#datetimepicker2').find("input").val();
+          console.log($scope.newEvent);
+          data.eventList.push($scope.newEvent);
+          data.currentEvent = $scope.newEvent;
           $scope.$broadcast('add-event-detail');
           $element.parent().remove();
         };

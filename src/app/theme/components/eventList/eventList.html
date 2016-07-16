@@ -1,5 +1,5 @@
 <div class="panel full-invisible with-scroll tree-panel" zoom-in>
-  <div class="green-1">
+  <div class="{{theme.color}}-1">
     <div class="panel-options">
       <a href="" class="white" ng-click="addEventPage()">
         <span class="glyphicon glyphicon-plus"></span> Add
@@ -25,10 +25,10 @@
         </thead>
         <tbody>
           <tr ng-repeat="item in metricsTableData" class="no-top-border" ng-click="onEventItemClick(item)">
-            <td ng-class="nowrap">{{item.event}}</td>
-            <td class="align-right">{{item.startTime}}</td>
-            <td class="align-right">{{item.endTime}}</td>
-            <td class="align-right">{{item.status}}</td>
+            <td ng-class="nowrap">{{item.EventName}}</td>
+            <td class="align-right">{{item.StartDateTime}}</td>
+            <td class="align-right">{{item.EndDateTime}}</td>
+            <td class="align-right">{{item.Status}}</td>
           </tr>
         </tbody>
       </table>

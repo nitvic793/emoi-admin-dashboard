@@ -10,6 +10,11 @@
 
   /** @ngInject */
   function DeviceListCtrl($scope, fileReader, $filter, $uibModal) {
+    
+    $scope.theme = {
+      color:'blue'
+    };
+    
     $scope.picture = $filter('profilePicture')('Nasta');
     $scope.addNewNode = function (params) {
       $scope.$broadcast('add-event-detail');
