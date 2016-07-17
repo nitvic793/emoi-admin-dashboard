@@ -10,14 +10,16 @@
   <div class="panel-body body-green-1">
     <div class="row">
       <div class="col-md-12">
-        <h2>Device 001</h2>
-        <p>Waiting</p>
+        <h2>Device {{currentDevice.DeviceID}}</h2>
+        <p>{{currentDevice.Status}}</p>
         <h2>Event</h2>
         <p>
-          <select><option value="123">Abcd</option></select>
+          <select ng-options="option.EventName for option in data.eventList track by option.ID"
+      ng-model="currentEvent" ng-change="onOptionChange()">
+            </select>
           <a href="" ng-click="addEventPage()"><span class="glyphicon glyphicon-plus right"></span></a>
         </p>
-        <h3>Event Code </h3>
+        <h3>{{currentEvent.EventCode}}</h3>
         <table class="table">
           <thead>
             <tr>
@@ -28,18 +30,18 @@
           </thead>
           <tbody>
             <tr>
-              <td class="align-left">28 July 2016</td>
+              <td class="align-left">{{currentEvent.StartDateTime | date:'d MMM yyyy'}}</td>
               <td></td>
-              <td class="align-right">28 July 2016</td>
+              <td class="align-right">{{currentEvent.EndDateTime | date:'d MMM yyyy'}}</td>
             </tr>
             <tr>
-              <td class="align-left">5:00 PM</td>
+              <td class="align-left">{{currentEvent.StartDateTime  | date:'h:mm a'}}</td>
               <td>-</td>
-              <td class="align-right">7:00 PM</td>
+              <td class="align-right">{{currentEvent.EndDateTime  | date:'h:mm a'}}</td>
             </tr>
           </tbody>
         </table>
-        <a href="" class="right icon-button"><i class="ion-checkmark-circled"></i></a>
+        <a href="" class="right icon-button" ng-click="addToEvent()"><i class="ion-checkmark-circled"></i></a>
       </div>
     </div>
   </div>

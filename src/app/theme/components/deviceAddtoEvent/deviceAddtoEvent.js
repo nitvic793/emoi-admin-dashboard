@@ -6,10 +6,10 @@
   'use strict';
 
   angular.module('BlurAdmin.theme.components')
-    .directive('deviceaddtoevent', deviceAddtoEvent);
+    .directive('deviceaddtoevent', ['$location', '$state', 'dataServices', deviceAddtoEvent]);
 
   /** @ngInject */
-  function deviceAddtoEvent($location, $state) {
+  function deviceAddtoEvent($location, $state, data) {
     return {
       restrict: 'E',
       templateUrl: 'app/theme/components/deviceAddtoEvent/deviceAddtoEvent.html',
@@ -20,30 +20,39 @@
         $scope.$watch(function () {
           $scope.activePageTitle = $state.current.title;
         });
-        
+
         $scope.addEventPage = function openCreateEventPage() {
           $scope.$broadcast('add-event-create');
         };
-        
-        $scope.closeDeviceEvent = function(){
+
+        $scope.closeDeviceEvent = function () {
           $scope.$broadcast('remove-device-event');
         };
+
+        $scope.currentDevice = data.currentDevice;
+        $scope.currentEvent = data.currentEvent;
+        $scope.onOptionChange = function () {
+          console.log($scope.currentEvent);
+          data.currentEvent = $scope.currentEvent;
+        };
         
-        $scope.metricsTableData = [
-          {
-            device: 'Device 001',
-            status: 'Running',
-            event: 'Evt1',
-            isRunning: true
-          },
-          {
-            device: 'Device 002',
-            status: 'Waiting',
-            event: '-'
-          },
-        ];
+        $scope.addToEvent = function(){
+          var eventCode = $scope.currentEvent.EventCode;
+          var deviceId = $scope.currentDevice.DeviceID;
+          data.addDevicesToEvent(eventCode, [deviceId], function(response){
+            console.log('response', response);
+            $scope.refreshDevices();
+            $scope.$broadcast('refresh');
+            $scope.closeDeviceEvent();
+          });
+        }
         
-        
+        $scope.refreshDevices = function(){
+          data.getAllDevices();
+        }
+        $scope.data = data;
+        console.log($scope.data);
+
       }
 
     };

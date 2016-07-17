@@ -30,6 +30,7 @@
             console.log(event);
             data.currentEvent = event;
             $scope.$broadcast('add-event-detail');
+            $scope.$broadcast('refresh');
             $element.parent().remove();
           });
         };

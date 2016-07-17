@@ -11,7 +11,7 @@
     'BlurAdmin.pages.dashboard',
     // 'BlurAdmin.pages.ui',
     // 'BlurAdmin.pages.components',
-    // 'BlurAdmin.pages.form',
+     'BlurAdmin.pages.form',
     // 'BlurAdmin.pages.tables',
     // 'BlurAdmin.pages.charts',
     // 'BlurAdmin.pages.maps',
@@ -19,7 +19,7 @@
     'BlurAdmin.pages.eventCreate',
     'BlurAdmin.pages.eventList',
     'BlurAdmin.pages.eventStats',
-    'BlurAdmin.pages.deviceList'
+    'BlurAdmin.pages.deviceList',
   ])
       .config(routeConfig);
 

@@ -25,7 +25,10 @@
           $scope.$broadcast('add-event-create');
         };
         
-        $scope.metricsTableData = data.eventList;
+        $scope.eventList = data.eventList;
+        data.getEvents(function(response){
+          $scope.eventList = data.eventList;
+        });
       }
 
     };

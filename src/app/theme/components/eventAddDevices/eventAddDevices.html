@@ -12,7 +12,7 @@
 
   <div class="panel-body body-green-1">
     <div class="row">
-      <div class="col-md-11">
+      <div class="col-md-12">
         <p>Add devices to event</p>
         <table class="table table-hover">
           <thead>
@@ -22,10 +22,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="item in metricsTableData" class="no-top-border">
-              <td ng-class="nowrap">{{item.device}}</td>
+            <tr ng-repeat="item in freeDevices" class="no-top-border">
+              <td ng-class="nowrap">{{item.DeviceID}} {{item.toAdd}}</td>
               <td class="align-right">
-                <switch color="primary" ng-model="item.isRunning"></switch>
+                <switch color="primary" ng-model="item.toAdd"></switch>
               </td>
             </tr>
           </tbody>

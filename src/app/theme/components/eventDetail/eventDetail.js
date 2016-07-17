@@ -33,6 +33,10 @@
           $scope.$broadcast('remove-event-detail');
         };
         
+        $scope.$on('refresh', function(){
+          data.getEvent(data.currentEvent.ID);
+        });
+        
         $scope.event = data.currentEvent;
         var current = moment();
         $scope.statusBox = 'info';

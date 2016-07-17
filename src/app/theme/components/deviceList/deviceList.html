@@ -18,16 +18,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in metricsTableData" class="no-top-border">
-            <td ng-class="nowrap">{{item.device}}</td>
-            <td class="align-right">{{item.status}}</td>
-            <td class="align-right">{{item.event}}</td>
+          <tr ng-repeat="item in deviceList" class="no-top-border">
+            <td ng-class="nowrap">{{item.DeviceID}}</td>
+            <td class="align-right">{{item.Status}}</td>
+            <td class="align-right">{{item.EventRefId}}</td>
             <td class="align-right">
-              <div ng-if="item.event!='-'">
+              <div ng-if="item.EventRefId!=null">
                 <switch color="primary" ng-model="item.isRunning"></switch>
               </div>
-              <div ng-if="item.event=='-'">
-                <a href="" ng-click="addDeviceToEvent()"><span class="glyphicon glyphicon-plus"></span></a>
+              <div ng-if="item.EventRefId==null">
+                <a href="" ng-click="addDeviceToEvent(item)"><span class="glyphicon glyphicon-plus"></span></a>
               </div>
             </td>
           </tr>
