@@ -17,6 +17,7 @@
           templateUrl: 'app/pages/eventList/eventList.html',
           controller: 'EventListCtrl',
           sidebarMeta:{
+            icon:'ion-ios-list',
             order:900
           }
         });

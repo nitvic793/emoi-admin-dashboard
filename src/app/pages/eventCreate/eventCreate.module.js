@@ -17,6 +17,7 @@
           templateUrl: 'app/pages/eventCreate/eventCreate.html',
           controller: 'EventCreateCtrl',
           sidebarMeta:{
+            icon:'ion-wand',
             order:800
           }
         });

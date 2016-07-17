@@ -26,8 +26,8 @@
         <tbody>
           <tr ng-repeat="item in metricsTableData" class="no-top-border" ng-click="onEventItemClick(item)">
             <td ng-class="nowrap">{{item.EventName}}</td>
-            <td class="align-right">{{item.StartDateTime}}</td>
-            <td class="align-right">{{item.EndDateTime}}</td>
+            <td class="align-right">{{item.StartDateTime | date:'d MMM yyyy, h:mm a'}}</td>
+            <td class="align-right">{{item.EndDateTime | date:'d MMM yyyy, h:mm a'}}</td>
             <td class="align-right">{{item.Status}}</td>
           </tr>
         </tbody>

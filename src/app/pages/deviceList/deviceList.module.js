@@ -17,6 +17,7 @@
           templateUrl: 'app/pages/deviceList/deviceList.html',
           controller: 'DeviceListCtrl',
           sidebarMeta:{
+            icon:'ion-videocamera',
             order:1000
           }
         });

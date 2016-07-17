@@ -6,34 +6,48 @@
   'use strict';
 
   angular.module('BlurAdmin.theme')
-    .service('dataServices', data);
+    .service('dataServices', ['$http', data]);
+  var base = 'http://localhost:10395/api/';
+  var config = {
+    events: base + 'events',
+    devices: base + 'devices'
+  };
 
   /** @ngInject */
-  function data() {
-    this.eventList = [
-      {
-        ID:1,
-        EventName: 'Electronic Expo',
-        StartDateTime: '2016/12/1 9:00 PM',
-        EndDateTime: '2016/12/1 11:00 PM',
-        Status: 'Waiting'
-      },
-      {
-        ID:2,
-        EventName: 'Medical conferences',
-        StartDateTime: '2016/12/1 9:00 PM',
-        EndDateTime: '2016/12/1 11:00 PM',
-        Status: 'Waiting'
-      }
-    ];
-    this.currentEvent = {
-      id:2,
-      event: 'Electronic Expo',
-      startTime: '1st Dec 2016, 9:00PM',
-      endTime: '1st Dec 2016, 11:00PM',
-      status: 'Waiting'
-    };
+  function data($http) {
+    var self = this;
+    this.eventList = [];
+    this.currentEvent = {};
     this.deviceList = [];
     this.currentDevice = {};
+
+    function get(url, cb) {
+      $http.get(url)
+        .then(function (data) {
+          cb(data.data);
+        });
+    }
+    
+    function post(url, data, cb){
+      $http.post(url,data)
+      .then(function(data){
+        cb(data.data);
+      });
+    }
+
+    this.getEvents = function (cb) {
+      get(config.events, function (data) {
+        self.eventList = data;
+      });
+    };
+    
+    this.createEvent = function(event, cb){
+      post(config.events, event, function(data){
+        self.eventList.push(data);
+        cb(data);
+      });
+    }
+    
+    this.getEvents();
   }
 })();

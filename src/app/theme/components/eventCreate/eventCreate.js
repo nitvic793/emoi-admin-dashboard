@@ -26,11 +26,14 @@
           $scope.newEvent.StartDateTime = $('#datetimepicker1').find("input").val();
           $scope.newEvent.EndDateTime = $('#datetimepicker2').find("input").val();
           console.log($scope.newEvent);
-          data.eventList.push($scope.newEvent);
-          data.currentEvent = $scope.newEvent;
-          $scope.$broadcast('add-event-detail');
-          $element.parent().remove();
+          data.createEvent($scope.newEvent, function (event) {
+            console.log(event);
+            data.currentEvent = event;
+            $scope.$broadcast('add-event-detail');
+            $element.parent().remove();
+          });
         };
+        data.getEvents();
       }
     };
   }

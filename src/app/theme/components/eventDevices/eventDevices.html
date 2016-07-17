@@ -5,7 +5,7 @@
     </div>
     <a href="" ng-click="closeEventDevices()" class="right icon-button-header white"><i class="ion-ios-arrow-back"></i></a>
     <div class="custom-panel-header">
-      <h1>3 Devices</h1>
+      <h1>Devices</h1>
 
     </div>
   </div>
@@ -23,9 +23,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="item in metricsTableData" class="no-top-border">
-              <td ng-class="nowrap">{{item.device}}</td>
-              <td class="align-right">{{item.status}}</td>
+            <tr ng-repeat="item in devices" class="no-top-border">
+              <td ng-class="nowrap">{{item.DeviceID}}</td>
+              <td class="align-right">{{item.Status}}</td>
             </tr>
           </tbody>
         </table>

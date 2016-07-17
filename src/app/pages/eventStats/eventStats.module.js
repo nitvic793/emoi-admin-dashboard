@@ -17,6 +17,7 @@
           templateUrl: 'app/pages/eventStats/eventStats.html',
           controller: 'EventStatsCtrl',
           sidebarMeta:{
+            icon: 'ion-stats-bars',
             order:1000
           }
         });
