@@ -32,16 +32,43 @@
                         $scope.deviceList = data;
                     });
                 };
-                
+
                 loadData();
-                
+
                 $scope.addDeviceToEvent = function(device) {
                     data.currentDevice = device;
                     $scope.$broadcast('add-device-event');
                 };
-                
-                $scope.$on('refresh', function(){
-                  loadData();
+
+                $scope.sendCommand = function(device) {
+                    console.log(device);
+                };
+
+                $scope.updateDevices = function() {
+                    console.log('Updating Devices');
+                    var toStart = [];
+                    var toStop = [];
+                    $scope.deviceList.forEach(function(val, i, arr) {
+                        if (val.isRunning) {
+                            toStart.push(val.DeviceID);
+                        }
+                        else {
+                            toStop.push(val.DeviceID);
+                        }
+                    });
+                    console.log(toStart, toStop);
+                    data.startDevices(toStart, function(res) {
+                        console.log('Starting...');
+                        console.log(toStart, res);
+                    });
+                    data.stopDevices(toStop, function(res) {
+                        console.log('Stopping...');
+                        console.log(toStop);
+                    });
+                }
+
+                $scope.$on('refresh', function() {
+                    loadData();
                 });
             }
 

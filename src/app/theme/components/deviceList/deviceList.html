@@ -1,6 +1,7 @@
 <div class="panel full-invisible with-scroll tree-panel" zoom-in>
   <div class="{{theme.color}}-1">
     <div class="panel-options">
+      <a href="" class="white right" ng-click="updateDevices()"><span class="glyphicon glyphicon-floppy-disk"></span>  Update</a>
     </div>
     <div class="custom-panel-header">
       <h1>Device List</h1>
@@ -22,7 +23,7 @@
             <td ng-class="nowrap">{{item.DeviceID}}</td>
             <td class="align-right">{{item.Status}}</td>
             <td class="align-right">{{item.EventRefId}}</td>
-            <td class="align-right">
+            <td class="align-right" ng-click="sendCommand(item)">
               <div ng-if="item.EventRefId!=null">
                 <switch color="primary" ng-model="item.isRunning"></switch>
               </div>
