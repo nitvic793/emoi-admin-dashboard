@@ -40,8 +40,8 @@
         $scope.event = data.currentEvent;
         var current = moment();
         $scope.statusBox = 'info';
-        $scope.startDate = new Date(data.currentEvent.StartDateTime);
-        $scope.endDate = new Date(data.currentEvent.EndDateTime);
+        $scope.startDate = data.currentEvent.StartDateTime;
+        $scope.endDate = data.currentEvent.EndDateTime;
         var done = 0;
         var left = 100;
         var start = moment($scope.startDate);
