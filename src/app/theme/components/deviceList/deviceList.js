@@ -34,6 +34,8 @@
                 };
 
                 loadData();
+                
+                $scope.refreshDeviceList = loadData;
 
                 $scope.addDeviceToEvent = function(device) {
                     data.currentDevice = device;
@@ -67,9 +69,7 @@
                     });
                 }
 
-                $scope.$on('refresh', function() {
-                    loadData();
-                });
+                $scope.$on('refresh', loadData);
             }
 
         };

@@ -21,11 +21,16 @@
                         data.freeDevices.forEach(function(val, i, arr) {
                             val.toAdd = false;
                         });
+                        console.log('Done');
                         $scope.freeDevices = data.freeDevices;
                     });
                 };
                 
                 loadData();
+                $scope.refreshFreeDevices = function(){
+                    loadData();
+                };
+                
                 $scope.$on('remove-event-add-devices', function(e) {
                     element.parent().remove();
                 });
