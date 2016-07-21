@@ -6,13 +6,13 @@
   'use strict';
 
   angular.module('BlurAdmin.pages.eventStats')
-    .controller('EventStatsCtrl', EventStatsCtrl);
+    .controller('EventStatsCtrl', ['$scope', 'fileReader', '$filter', 'dataServices', EventStatsCtrl]);
 
   /** @ngInject */
-  function EventStatsCtrl($scope, fileReader, $filter, $uibModal) {
-    
+  function EventStatsCtrl($scope, fileReader, $filter, data) {
+
     $scope.theme = {
-      color:'yellow'
+      color: 'yellow'
     };
     $scope.addNewNode = function (params) {
       $scope.$broadcast('add-event-detail');
@@ -28,9 +28,10 @@
     $scope.removeEventDetail = function () {
       $scope.$broadcast('remove-event-detail');
     }
-    
-    $scope.onEventItemClick = function(item){
-      console.log('Set Current event for graph');     
+
+    $scope.onEventItemClick = function (item) {
+      data.currentEvent = item;
+      $scope.$broadcast('add-event-stats');
     }
   }
 

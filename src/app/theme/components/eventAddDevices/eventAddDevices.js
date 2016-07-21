@@ -32,6 +32,7 @@
                 };
                 
                 $scope.$on('remove-event-add-devices', function(e) {
+                    $scope.count--;
                     element.parent().remove();
                 });
                 $scope.$watch(function() {

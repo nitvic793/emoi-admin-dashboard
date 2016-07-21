@@ -6,7 +6,7 @@
     </div>
      <a href="" ng-click = "closeEventDetails()" class="right icon-button-header white"><i class="ion-ios-arrow-back"></i></a>
     <div class="custom-panel-header">
-      <h1>{{event.EventName}}</h1>        
+      <h1>{{event.EventName}} <a href="" ng-click="editEvent()"><span class="white glyphicon glyphicon-edit"></span></a>  </h1>      
      
     </div>
   </div>
@@ -40,7 +40,8 @@
         <div class="alert bg-{{statusBox}}" style="text-align:center">
           <strong>{{status}}</strong>
         </div>
-        <canvas id="pie" class="chart chart-pie" chart-legend="true" chart-options="options" chart-data="data" chart-labels="labels"
+        <canvas id="pie" class="chart chart-pie" chart-legend="true" chart-colors="colors"
+        chart-options="options" chart-data="data" chart-labels="labels"
           chart-click="changeData">
         </canvas>
 

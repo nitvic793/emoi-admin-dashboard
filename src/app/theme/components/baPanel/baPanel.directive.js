@@ -19,7 +19,6 @@
         res += '" zoom-in ' + (baConfig.theme.blur ? 'ba-panel-blur' : '') + '>';
         res += baPanel.template(el, attrs);
         res += '</div>';
-        console.log(res);
         return res;
       }
     });

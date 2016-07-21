@@ -7,6 +7,10 @@
     color: white;
 }
 
+.green{
+    color:#00B050;
+}
+
 .red-1{
     background-color: #FF5050;
     color: white;
@@ -68,4 +72,45 @@
      margin-top:30%;
 }
 
+h1 span.glyphicon{
+    font-size: 15px;
+}
 
+.btn-sq-lg {
+    padding: 8px;
+  width: 150px !important;
+  height: 150px !important;
+}
+
+.btn-sq {
+  width: 100px !important;
+  height: 100px !important;
+  font-size: 10px;
+}
+
+.btn-sq-sm {
+  width: 50px !important;
+  height: 50px !important;
+  font-size: 10px;
+}
+
+.btn-sq-xs {
+  width: 25px !important;
+  height: 25px !important;
+  padding:2px;
+}
+
+.dashboard-button
+{
+    padding: 10px;
+    font-size:24px;
+}
+
+.btn.btn-sq-lg
+{
+    margin: 5px;
+}
+
+a:hover{
+    color: #EDFAC1;
+}

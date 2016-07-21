@@ -18,7 +18,8 @@
           controller: 'EventListCtrl',
           sidebarMeta:{
             icon:'ion-ios-list',
-            order:900
+            order:900,
+            css:'green-1'
           }
         });
   }

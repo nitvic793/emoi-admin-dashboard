@@ -7,7 +7,7 @@
 
     angular.module('BlurAdmin.theme')
         .service('dataServices', ['$http', '$rootScope', data]);
-    var base = 'http://localhost:10395/api/';
+    var base = 'http://emoiserver.azurewebsites.net/api/';
     var config = {
         events: base + 'events',
         devices: base + 'devices'
@@ -131,6 +131,10 @@
                 }
             });
         };
+        
+        this.updateEvent = function(event,cb){
+            post(config.events + '/edit', event, cb);
+        }
 
         this.getEvents();
         this.getFreeDevices();

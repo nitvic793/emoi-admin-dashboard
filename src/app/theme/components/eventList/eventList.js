@@ -15,6 +15,7 @@
       templateUrl: 'app/theme/components/eventList/eventList.html',
       link: function ($scope, element) {
         $scope.$on('remove-event-list', function (e) {
+          $scope.count--;
           element.parent().remove();
         });
         $scope.$watch(function () {

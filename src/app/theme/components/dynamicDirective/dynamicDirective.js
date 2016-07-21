@@ -9,12 +9,12 @@
     .directive('dynamicdirective', dynamicDirective);
 
   /** @ngInject */
-  function dynamicDirective($location, $state, $compile) {
+  function dynamicDirective($location, $state, $compile, $rootScope) {
     return {
       restrict: 'E',
       templateUrl: 'app/theme/components/dynamicDirective/dynamicDirective.html',
       link: function ($scope, $element, attr) {
-
+        $rootScope.count = 1;
         var pageAddEvents = [
           { name: 'add-event-create', css: 'col-md-6', directive: 'eventcreate' },
           { name: 'add-event-detail', css: 'col-md-6', directive: 'eventdetail' },
@@ -23,7 +23,8 @@
           { name: 'add-device-list', css: 'col-md-6', directive: 'devicelist' },
           { name: 'add-device-event', css: 'col-md-6', directive: 'deviceaddtoevent' },
           { name: 'add-event-devices', css: 'col-md-6', directive: 'eventdevices' },
-          { name: 'add-event-add-devices', css: 'col-md-6', directive: 'eventadddevices' }
+          { name: 'add-event-add-devices', css: 'col-md-6', directive: 'eventadddevices' },
+          { name: 'add-event-edit', css: 'col-md-6', directive: 'eventedit' }
         ];
 
         var pageRemoveEvents = [
@@ -42,13 +43,15 @@
         function registerEvent(eventName, css, directive) {
           $scope.$on(eventName, function registerPageAddEvent() {
             console.log(currentPages);
-            if (currentPages[eventName]) {
+            if (currentPages[eventName]) {              
               var prevInstance = eventName.replace('add', 'remove');
               $scope.$broadcast(prevInstance); //remove previous instance of tile page
             }
             else {
               currentPages[eventName] = true;
             }
+            $scope.count++;
+            console.log($scope.count);
             $element
               .parent()
               .append($compile('<div class="' + css + '"><' + directive + '></' + directive + '></div>')($scope));

@@ -15,4 +15,8 @@ angular.module('BlurAdmin', [
 
   'BlurAdmin.theme',
   'BlurAdmin.pages'
-]);
+])
+.controller('MainCtrl', function($scope, $rootScope) {
+  console.log('test');
+  $rootScope.bodyStyle = {};
+});;

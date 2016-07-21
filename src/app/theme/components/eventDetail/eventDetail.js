@@ -15,12 +15,19 @@
       templateUrl: 'app/theme/components/eventDetail/eventDetail.html',
       link: function ($scope, element) {
         $scope.$on('remove-event-detail', function (e) {
+          $scope.count--;
           element.parent().remove();
+
         });
         $scope.$watch(function () {
           $scope.activePageTitle = $state.current.title;
         });
-
+        
+        $scope.editEvent = function(){
+          $scope.$broadcast('add-event-edit');
+          $scope.$broadcast('remove-event-detail');
+        };
+        
         $scope.openStats = function openStatsPage() {
           $scope.$broadcast('add-event-stats');
         };
@@ -32,11 +39,11 @@
         $scope.closeEventDetails = function () {
           $scope.$broadcast('remove-event-detail');
         };
-        
-        $scope.$on('refresh', function(){
+
+        $scope.$on('refresh', function () {
           data.getEvent(data.currentEvent.ID);
         });
-        
+
         $scope.event = data.currentEvent;
         var current = moment();
         $scope.statusBox = 'info';
@@ -54,10 +61,10 @@
         if (current.isAfter(start) && current.isBefore(end)) {
           console.log("Running");
           var elapsed = end.diff(current);
-          var percentage = (elapsed/duration)*100;
+          var percentage = (elapsed / duration) * 100;
           left = percentage;
           done = 100 - percentage;
-          console.log(left,done);
+          console.log(left, done);
           status = 'Running';
           $scope.statusBox = 'danger';
         }
@@ -74,9 +81,11 @@
           left = 100;
           done = 0;
         }
+
         $scope.status = status;
         $scope.labels = ["Left", "Done"];
         $scope.data = [left, done];
+        $scope.colors = ['#c0c0c0', '#32cd32']
         $scope.options = {
           segmentShowStroke: false
         };

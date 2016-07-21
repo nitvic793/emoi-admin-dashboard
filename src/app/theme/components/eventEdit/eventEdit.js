@@ -6,25 +6,29 @@
   'use strict';
 
   angular.module('BlurAdmin.theme.components')
-    .directive('eventcreate', ['$location', '$state', 'dataServices', '$rootScope', eventCreate]);
+    .directive('eventedit', ['$location', '$state', 'dataServices', '$rootScope', eventEdit]);
 
   /** @ngInject */
-  function eventCreate($location, $state, data, $rootScope) {
+  function eventEdit($location, $state, data, $rootScope) {
     return {
       restrict: 'E',
-      templateUrl: 'app/theme/components/eventCreate/eventCreate.html',
+      templateUrl: 'app/theme/components/eventEdit/eventEdit.html',
       link: function ($scope, $element) {
-        $scope.$on('remove-event-create', function (e) {
+        $scope.$on('remove-event-edit', function (e) {
           $scope.count--;
           console.log($scope.count);
           $element.parent().remove();
+
         });
         $scope.$watch(function () {
           $scope.activePageTitle = $state.current.title;
         });
         $scope.status = '';
-        $scope.newEvent = {};
-
+        $scope.newEvent = data.currentEvent;
+        
+        $scope.RemoveEventEdit = function(){
+          $scope.$broadcast('remove-event-edit');
+        };
 
         function isUpperCase(str) {
           return true;
@@ -72,7 +76,7 @@
             return;
           }
           console.log($scope.newEvent);
-          data.createEvent($scope.newEvent, function (event) {
+          data.updateEvent($scope.newEvent, function (event) {
             console.log(event);
             data.currentEvent = event;
             $scope.$broadcast('add-event-detail');

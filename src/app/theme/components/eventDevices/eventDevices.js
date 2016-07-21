@@ -2,7 +2,7 @@
  * @author v.lugovksy
  * created on 16.12.2015
  */
-(function() {
+(function () {
     'use strict';
 
     angular.module('BlurAdmin.theme.components')
@@ -13,12 +13,13 @@
         return {
             restrict: 'E',
             templateUrl: 'app/theme/components/eventDevices/eventDevices.html',
-            link: function($scope, element) {
-                $scope.$on('remove-event-devices', function(e) {
+            link: function ($scope, element) {
+                $scope.$on('remove-event-devices', function (e) {
+                    $scope.count--;
                     element.parent().remove();
                 });
 
-                $scope.$watch(function() {
+                $scope.$watch(function () {
                     $scope.activePageTitle = $state.current.title;
                 });
 
@@ -30,15 +31,15 @@
                     $scope.$broadcast('add-event-add-devices');
                 };
 
-                $scope.closeEventDevices = function() {
+                $scope.closeEventDevices = function () {
                     $scope.$broadcast('remove-event-devices');
                 };
                 console.log('Devices for events', data.currentEvent.Devices);
                 $scope.devices = data.currentEvent.Devices;
-                $scope.$on('refresh', function() {
+                $scope.$on('refresh', function () {
                     console.log('Refreshing...');
-                    data.getEvents(function(events) {
-                        events.forEach(function(e) {
+                    data.getEvents(function (events) {
+                        events.forEach(function (e) {
                             if (e.ID == data.currentEvent.ID) {
                                 data.currentEvent = e;
                                 $scope.devices = e.Devices;
@@ -47,11 +48,11 @@
                         console.log(data.currentEvent.Devices);
                     });
                 });
-                
-                $scope.startDevices = function(){
-                  data.startDevicesForEvent(data.currentEvent.EventCode, function(response,err){
-                    console.log('response', response, err);
-                  });
+
+                $scope.startDevices = function () {
+                    data.startDevicesForEvent(data.currentEvent.EventCode, function (response, err) {
+                        console.log('response', response, err);
+                    });
                 };
             }
         };

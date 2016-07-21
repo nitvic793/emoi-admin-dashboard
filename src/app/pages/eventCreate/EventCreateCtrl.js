@@ -9,8 +9,8 @@
     .controller('EventCreateCtrl', EventCreateCtrl);
 
   /** @ngInject */
-  function EventCreateCtrl($scope, fileReader, $filter, $uibModal) {
-    
+  function EventCreateCtrl($scope, fileReader, $filter, $uibModal, $state) {
+
     $scope.addNewNode = function (params) {
       $scope.$broadcast('add-event-detail');
     };
@@ -20,14 +20,15 @@
     };
     $scope.RemoveEventCreate = function () {
       $scope.$broadcast('remove-event-create');
+      $state.go('dashboard');
     };
 
     $scope.removeEventDetail = function () {
       $scope.$broadcast('remove-event-detail');
     };
-    
+
     $scope.theme = {
-      color:'red'
+      color: 'red'
     };
   }
 

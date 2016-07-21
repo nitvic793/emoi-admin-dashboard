@@ -15,11 +15,7 @@
           url: '/form',
           template : '<ui-view></ui-view>',
           abstract: true,
-          title: 'Form Elements',
-          sidebarMeta: {
-            icon: 'ion-compose',
-            order: 250,
-          },
+          title: 'Form Elements'
         })
         .state('form.inputs', {
           url: '/inputs',

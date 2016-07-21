@@ -16,7 +16,10 @@
             link: function($scope, element) {
                 $scope.$on('remove-device-list', function(e) {
                     element.parent().remove();
+                    $scope.count--;
+
                 });
+                
                 $scope.$watch(function() {
                     $scope.activePageTitle = $state.current.title;
                 });

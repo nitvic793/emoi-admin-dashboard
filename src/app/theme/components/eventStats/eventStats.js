@@ -15,6 +15,7 @@
       templateUrl: 'app/theme/components/eventStats/eventStats.html',
       link: function ($scope, element) {
         $scope.$on('remove-event-stats', function (e) {
+          $scope.count--;
           element.parent().remove();
         });
         $scope.$watch(function () {
@@ -75,6 +76,8 @@
           console.log(data);
           setGraph(data);
         });
+        
+        
       }
 
     };
