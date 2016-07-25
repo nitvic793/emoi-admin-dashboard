@@ -75,9 +75,9 @@
           data.createEvent($scope.newEvent, function (event) {
             console.log(event);
             data.currentEvent = event;
+            $scope.$broadcast('remove-event-add');
             $scope.$broadcast('add-event-detail');
-            $scope.$broadcast('refresh');
-            $element.parent().remove();
+            $scope.$broadcast('refresh');            
           });
         };
         data.getEvents();

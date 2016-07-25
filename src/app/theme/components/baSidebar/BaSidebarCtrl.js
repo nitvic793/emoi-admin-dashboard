@@ -10,7 +10,7 @@
 
   /** @ngInject */
   function BaSidebarCtrl($scope, baSidebarService, $rootScope) {
-
+    $scope.showSidebar = true;
     $scope.menuItems = baSidebarService.getMenuItems();
     $scope.defaultSidebarState = $scope.menuItems[0].stateRef;
 
@@ -22,7 +22,7 @@
     };
 
     $scope.$on('$stateChangeSuccess', function () {
-      $rootScope.bodyStyle = { "background-color": '#F0F3F4' };
+      //$rootScope.bodyStyle = { "background-color": '#F0F3F4' };
       if (baSidebarService.canSidebarBeHidden()) {
         baSidebarService.setMenuCollapsed(true);
       }

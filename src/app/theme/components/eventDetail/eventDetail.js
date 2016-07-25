@@ -85,7 +85,7 @@
         $scope.status = status;
         $scope.labels = ["Left", "Done"];
         $scope.data = [left, done];
-        $scope.colors = ['#c0c0c0', '#32cd32']
+        $scope.colors = ['rgba()', '#32cd32']
         $scope.options = {
           segmentShowStroke: false
         };

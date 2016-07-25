@@ -5,7 +5,7 @@
   'use strict';
 
   angular.module('BlurAdmin.theme')
-      .directive('slidein', slideIn);
+    .directive('slidein', slideIn);
 
   /** @ngInject */
   function slideIn($timeout, $rootScope) {
@@ -20,7 +20,10 @@
 
         $timeout(function () {
           elem.removeClass('full-invisible');
-          elem.addClass('animated slideInUp');
+          elem.addClass('animated pulse');
+          setTimeout(function(){
+            elem.removeClass('peeche');
+          },2000);         
         }, delay);
       }
     };

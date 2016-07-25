@@ -1,6 +1,8 @@
 <div class="panel full-invisible with-scroll tree-panel" zoom-in>
   <div class="{{theme.color}}-1">
     <div class="panel-options">
+      <a href="" class="white" ng-click="toggleGraph()"><span class="ion-toggle"></span> {{graphStateOption}}</a>
+
     </div>
     <div class="custom-panel-header">
       <a href="" ng-click="closeStats()" class="right icon-button-header white"><i class="ion-ios-arrow-back"></i></a>
@@ -8,9 +10,20 @@
     </div>
   </div>
   <div class="panel-body body-green-1">
-    <div class="row">
+    <div class="row" ng-if="graphState=='Line'">
+      <div ng-if="!eventlabels || eventlabels.length==0">
+        <p>
+          {{statsStatus}}
+        </p>
+      </div>
       <canvas id="line" class="chart chart-line" chart-data="eventStatsData" chart-labels="eventlabels" chart-legend="false" chart-series="eventseries"
         chart-click="changeData"></canvas>
+      <!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
+    </div>
+    <div class="row" ng-if="graphState=='Spider'">
+      <canvas id="radar" class="chart chart-radar" chart-data="spiderData" chart-options="spiderOptions" chart-labels="spiderLabels">
+      </canvas>
+      <rzslider rz-slider-model="spiderSlider.value" rz-slider-options="spiderSlider.options" rz-slider-onchange="onSpiderSliderChange()"></rzslider>
     </div>
   </div>
 </div>

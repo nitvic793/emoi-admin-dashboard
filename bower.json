@@ -55,7 +55,9 @@
     "angular-xeditable": "~0.1.9",
     "ng-js-tree": "~0.0.7",
     "bootstrap-horizon": "^0.1.0",
-    "eonasdan-bootstrap-datetimepicker": "^4.17.37"
+    "eonasdan-bootstrap-datetimepicker": "^4.17.37",
+    "angular-bootstrap-datetimepicker": "^1.0.1",
+    "angularjs-slider": "^5.4.1"
   },
   "resolutions": {
     "angular": "~1.4.8"

@@ -36,6 +36,10 @@
                 };
                 console.log('Devices for events', data.currentEvent.Devices);
                 $scope.devices = data.currentEvent.Devices;
+                $scope.showNoDevices = false;
+                if ($scope.devices.length == 0) {
+                    $scope.showNoDevices = true;
+                }
                 $scope.$on('refresh', function () {
                     console.log('Refreshing...');
                     data.getEvents(function (events) {
@@ -43,11 +47,21 @@
                             if (e.ID == data.currentEvent.ID) {
                                 data.currentEvent = e;
                                 $scope.devices = e.Devices;
+                                if ($scope.devices.length == 0) {
+                                    $scope.showNoDevices = true;
+                                }
+                                else{
+                                    $scope.showNoDevices = false;                                    
+                                }
                             }
                         });
                         console.log(data.currentEvent.Devices);
                     });
                 });
+                
+                $scope.refreshEventDevices = function(){
+                    $scope.$broadcast('refresh');
+                };
 
                 $scope.startDevices = function () {
                     data.startDevicesForEvent(data.currentEvent.EventCode, function (response, err) {

@@ -16,14 +16,26 @@
     color: white;
 }
 
+.red{
+    color: #FF5050;
+}
+
 .blue-1{
     background-color: #00B0F0;
     color: white;
 }
 
+.blue{
+    color: #00B0F0;
+}
+
 .yellow-1{
     background-color: #EEB500;
     color: white;
+}
+
+.yellow{
+    color: #EEB500;
 }
 
 .panel-options{
@@ -43,6 +55,11 @@
     background-color: white;
 }
 
+.body-green-2{
+    background-color: #E2EBA0;
+}
+
+
 .white{
     color:white;
 }
@@ -58,6 +75,7 @@
     font-size: 40px;
     padding: 10px;
     margin-right:20px;
+    color:#010B3D;
 }
 
 .icon-button-header{
@@ -78,8 +96,8 @@ h1 span.glyphicon{
 
 .btn-sq-lg {
     padding: 8px;
-  width: 150px !important;
-  height: 150px !important;
+  width: 130px !important;
+  height: 130px !important;
 }
 
 .btn-sq {
@@ -103,7 +121,7 @@ h1 span.glyphicon{
 .dashboard-button
 {
     padding: 10px;
-    font-size:24px;
+    font-size:22px;
 }
 
 .btn.btn-sq-lg
@@ -113,4 +131,12 @@ h1 span.glyphicon{
 
 a:hover{
     color: #EDFAC1;
+}
+
+.peeche{
+   
+}
+
+.bgblue{
+    color:$sidebar;
 }

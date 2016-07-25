@@ -1,20 +1,24 @@
-<div class="panel full-invisible with-scroll tree-panel" zoom-in>
+<div class="panel full-invisible with-scroll tree-panel peeche" zoom-in>
   <div class="{{theme.color}}-1">
     <div class="panel-options">
       <a href="" class="white" ng-click="openEventDevices()"><span class="glyphicon glyphicon-facetime-video"></span> Devices</a>
       <a href="" class="white right" ng-click="openStats()"><span class="glyphicon glyphicon-stats"></span>  Statistics</a>
     </div>
-     <a href="" ng-click = "closeEventDetails()" class="right icon-button-header white"><i class="ion-ios-arrow-back"></i></a>
+    <a href="" ng-click="closeEventDetails()" class="right icon-button-header white"><i class="ion-ios-arrow-back"></i></a>
     <div class="custom-panel-header">
-      <h1>{{event.EventName}} <a href="" ng-click="editEvent()"><span class="white glyphicon glyphicon-edit"></span></a>  </h1>      
-     
+      <h1>
+        {{event.EventName}} 
+        <!--<a href="" ng-click="editEvent()"><span class="white glyphicon glyphicon-pencil"></span></a> -->
+         </h1>
+
     </div>
   </div>
- 
+
 
   <div class="panel-body body-green-1">
     <div class="row">
       <div class="col-md-12">
+        <a href="" ng-click="editEvent()" class=""><span class="right bgblue glyphicon glyphicon-pencil"></span></a>
         <h2>{{event.EventCode}}</h2>
         <table class="table">
           <thead>
@@ -40,9 +44,8 @@
         <div class="alert bg-{{statusBox}}" style="text-align:center">
           <strong>{{status}}</strong>
         </div>
-        <canvas id="pie" class="chart chart-pie" chart-legend="true" chart-colors="colors"
-        chart-options="options" chart-data="data" chart-labels="labels"
-          chart-click="changeData">
+        <canvas id="pie" class="chart chart-pie" chart-legend="true" chart-colors="colors" chart-options="options" chart-data="data"
+          chart-labels="labels" chart-click="changeData">
         </canvas>
 
       </div>

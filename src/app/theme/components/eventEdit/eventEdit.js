@@ -25,7 +25,11 @@
         });
         $scope.status = '';
         $scope.newEvent = data.currentEvent;
+        $('#datetimepicker1').data("DateTimePicker").date(new Date($scope.newEvent.StartDateTime));
+        $('#datetimepicker2').data("DateTimePicker").date(new Date($scope.newEvent.EndDateTime));
         
+        $scope.newEvent.StartDateTime = $('#datetimepicker1').find('input').val();
+        $scope.newEvent.EndDateTime = $('#datetimepicker2').find('input').val();
         $scope.RemoveEventEdit = function(){
           $scope.$broadcast('remove-event-edit');
         };

@@ -15,7 +15,7 @@
       color:'green'
     };
     $rootScope.$state = $state;
-    $rootScope.bodyStyle = {"background-color":'#20455A'};
+    $rootScope.bodyStyle = {"background-color":'#010B3D'};
     //#F0F3F4
     $scope.showSidebar = true;
     $scope.open = function (state) {

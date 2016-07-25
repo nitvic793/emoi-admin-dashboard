@@ -1,4 +1,4 @@
-<div class="panel full-invisible" slidein>
+<div class="panel full-invisible" zoom-in>
   <div class="{{theme.color}}-1">
     <div class="panel-options">
 
@@ -27,6 +27,7 @@
               <input type="text" class="form-control" ng-model="newEvent.EventCode" placeholder="Event Code">
             </div>
           </div>
+
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Start Time</label>
@@ -38,13 +39,14 @@
                 </span>
               </div>
             </div>
-
           </div>
+
+
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">End Time</label>
-              <div class='input-group date' id='datetimepicker2'>
-                <input type='text' class="form-control" data-format="yyyy-MM-dd hh:mm:ss" ng-model="newEvent.EndDateTime" placeholder="End Time"
+              <div class='input-group date' id='datetimepicker1'>
+                <input type='text' class="form-control" data-format="yyyy-MM-dd hh:mm:ss" ng-model="newEvent.StartDateTime" placeholder="Start Time"
                 />
                 <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
@@ -52,8 +54,14 @@
               </div>
             </div>
           </div>
+
+          <div class="col-md-12">
+            <br>
+            <br>
+          </div>
+
           <br>
-          <a href="" class="right icon-button green" ng-click="createEvent()"> <i class="glyphicon glyphicon-ok-circle"></i></a>
+          <a href="" class="right icon-button" ng-click="createEvent()"> <i class="glyphicon glyphicon-ok-circle"></i></a>
         </form>
       </div>
       <div class="col-md-1"></div>

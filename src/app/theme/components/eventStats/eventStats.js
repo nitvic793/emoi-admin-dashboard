@@ -44,40 +44,92 @@
         //   [28, 48, 40, 19, 88, 27, 45]
         // ];
         $scope.eventseries = [];//['Product A', 'Product B'];
-
+        $scope.statsStatus = "Loading...";
         var setGraph = function setGraph(results, cb) {
-          console.log(results);
           var data = results;
           var labels = [];
-          // var sources = [
-          //   { src: $sce.trustAsResourceUrl(results.MediaURL), type: "video/mp4" },
-          // ];
-          // $scope.config.sources = sources;
-          // $scope.config.theme = 'bower_components/videogular-themes-default/videogular.css'
-          for (var i = 0; i < data.Anger.length; ++i) {
-            labels.push(data.Anger[i].Start / 10000);
-          }
           var series = [];
           var graphData = [];
-          for (var key in data) {
-            series.push(key);
-            var tempData = [];
-            for (var i = 0; i < data[key].length; ++i) {
-              tempData.push(data[key][i].AverageFeelingValue * 100);
+          var spiderData = [];
+          var spiderSeries = [];
+          console.log(results);
+          try {
+            for (var i = 0; i < data.Anger.length; ++i) {
+              labels.push(data.Anger[i].Start / 10000);
             }
-            graphData.push(tempData);
+            var sliderIntervals = data.Anger.length;
+
+            for (var key in data) {
+              series.push(key);
+              if (key != 'Neutral') {
+                spiderSeries.push(key);
+              }
+              var tempData = [];
+              for (var i = 0; i < data[key].length; ++i) {
+                if (!spiderData[i] && key != 'Neutral') {
+                  spiderData[i] = [];
+                }
+                if (key != 'Neutral') {
+                  spiderData[i].push(data[key][i].AverageFeelingValue * 100);
+                }
+                tempData.push(data[key][i].AverageFeelingValue * 100);
+              }
+              graphData.push(tempData);
+            }
+            $scope.spiderMasterData = spiderData;
+            $scope.spiderLabels = spiderSeries;
+            $scope.eventlabels = labels;
+            $scope.eventseries = series;
+            $scope.eventStatsData = graphData;
+            $scope.spiderData = [spiderData[0]];
+
+            $scope.spiderSlider = {
+              value: 0,
+              options: {
+                floor: 0,
+                ceil: sliderIntervals,
+                step: 1,
+                minLimit: 0,
+                maxLimit: sliderIntervals,
+                onChange: function () {
+                  console.log('Slider change', $scope.spiderSlider);
+                  var index = $scope.spiderSlider.value;
+                  $scope.spiderData = [$scope.spiderMasterData[index]];
+                }
+              }
+            };
           }
-          $scope.eventlabels = labels;
-          $scope.eventseries = series;
-          $scope.eventStatsData = graphData;
+          catch (e) {
+          }
+          finally {
+            if (!labels || labels.length == 0) {
+              $scope.statsStatus = 'Nothing to show here :(';
+            }
+          }
+
         };
 
         data.getEventResults(currentEvent.EventCode, function (data) {
           console.log(data);
           setGraph(data);
         });
+        $scope.slider = {
+          value: 50,
+          options: {
+            floor: 0,
+            ceil: 100,
+            step: 1,
+            minLimit: 0,
+            maxLimit: 90
+          }
+        };
         
-        
+        $scope.graphState = 'Line';
+        $scope.graphStateOption = 'Line Graph Mode';
+        $scope.toggleGraph = function(){
+          $scope.graphState = ($scope.graphState=='Line')?'Spider':'Line';
+          $scope.graphStateOption = ($scope.graphState=='Line')?'Spider Graph Mode':'Line Graph Mode';
+        };
       }
 
     };
