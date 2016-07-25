@@ -58,7 +58,8 @@
     "eonasdan-bootstrap-datetimepicker": "^4.17.37",
     "angular-bootstrap-datetimepicker": "^1.0.1",
     "angularjs-slider": "^5.4.1",
-    "angular-nvd3": "^1.0.8"
+    "angular-nvd3": "^1.0.8",
+    "angularjs-nvd3-directives": "^0.0.7"
   },
   "resolutions": {
     "angular": "~1.4.8"

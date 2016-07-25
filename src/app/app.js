@@ -13,6 +13,7 @@ angular.module('BlurAdmin', [
   'ngJsTree',
   'angular-progress-button-styles',
   'rzModule',
+  'nvd3ChartDirectives',
 
   'BlurAdmin.theme',
   'BlurAdmin.pages'

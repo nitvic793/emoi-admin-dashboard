@@ -34,5 +34,11 @@
         <rzslider rz-slider-model="spiderSlider.value" rz-slider-options="spiderSlider.options" rz-slider-onchange="onSpiderSliderChange()"></rzslider>
       </div>
     </div>
+    <div class="row">
+      <nvd3-scatter-chart data="exampleData" id="exampleId" width="550" height="400" yAxisTickFormat="yAxisTickFormatFunction()"
+        xAxisTickFormat="xAxisTickFormatFunction()">
+        <svg></svg>
+      </nvd3-scatter-chart>
+    </div>
   </div>
 </div>
