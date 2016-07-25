@@ -1,0 +1,184 @@
+{
+    "CircumplexValueList": [
+        {
+            "Vector": {
+                "XCoord": 3.672355340763537,
+                "YCoord": 0.3482290274650816,
+                "Magnitude": 1.5486284149107068,
+                "AngleInRadian": 1.135026436148917
+            },
+            "Start": 0,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.4233802564569977,
+                "YCoord": 0.1113740786991731,
+                "Magnitude": 1.5635724723928222,
+                "AngleInRadian": 1.016945433774874
+            },
+            "Start": 60000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.341930963201949,
+                "YCoord": 0.04375536101769624,
+                "Magnitude": 1.5247289242931787,
+                "AngleInRadian": 1.0217753210478941
+            },
+            "Start": 120000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.3858242785033776,
+                "YCoord": 0.07069777235307206,
+                "Magnitude": 1.5523417560111261,
+                "AngleInRadian": 1.029241270333114
+            },
+            "Start": 180000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.565801863005654,
+                "YCoord": -0.05988793344567283,
+                "Magnitude": 1.8352531793767026,
+                "AngleInRadian": 1.0497747207004886
+            },
+            "Start": 240000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.777542574932635,
+                "YCoord": -0.042828855233456725,
+                "Magnitude": 1.9387096781945292,
+                "AngleInRadian": 1.0354025860427212
+            },
+            "Start": 300000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.4683797605629185,
+                "YCoord": -0.07431728972449027,
+                "Magnitude": 1.8436870330163253,
+                "AngleInRadian": 1.0183452962321675
+            },
+            "Start": 360000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.893428803126341,
+                "YCoord": 0.0038749025449994513,
+                "Magnitude": 1.9283857705159122,
+                "AngleInRadian": 1.0616652450646025
+            },
+            "Start": 420000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.6682206034856994,
+                "YCoord": -0.06655340007864068,
+                "Magnitude": 1.8928836126391115,
+                "AngleInRadian": 1.0492117884991996
+            },
+            "Start": 480000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.9413343558366236,
+                "YCoord": 0.023017056505938036,
+                "Magnitude": 1.911630870419906,
+                "AngleInRadian": 1.1114950072535876
+            },
+            "Start": 540000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.9493611034299634,
+                "YCoord": 0.27386649841445826,
+                "Magnitude": 1.5158429094803125,
+                "AngleInRadian": 0.984118470912194
+            },
+            "Start": 600000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.9074974989518276,
+                "YCoord": 0.29984719152783884,
+                "Magnitude": 1.6489339256832418,
+                "AngleInRadian": 0.9231572156234265
+            },
+            "Start": 660000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.9489712640883754,
+                "YCoord": 0.5434016049558088,
+                "Magnitude": 1.978295972769807,
+                "AngleInRadian": 1.040851732589013
+            },
+            "Start": 720000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 3.96289507238113,
+                "YCoord": 0.5427584727769028,
+                "Magnitude": 1.999525351715096,
+                "AngleInRadian": 1.0475932494773672
+            },
+            "Start": 780000,
+            "Duration": 60000
+        },
+        {
+            "Vector": {
+                "XCoord": 0.9622051456840078,
+                "YCoord": 0.06840483724035254,
+                "Magnitude": 0.6946441060319818,
+                "AngleInRadian": 0
+            },
+            "Start": 840000,
+            "Duration": 15000
+        },
+        {
+            "Vector": {
+                "XCoord": 0.9669036577579738,
+                "YCoord": 0.03166412602749476,
+                "Magnitude": 0.7911960959146809,
+                "AngleInRadian": 0
+            },
+            "Start": 855000,
+            "Duration": 15000
+        },
+        {
+            "Vector": {
+                "XCoord": 0.988723404065879,
+                "YCoord": 0.023931206294776,
+                "Magnitude": 0.8571829080758929,
+                "AngleInRadian": 0
+            },
+            "Start": 870000,
+            "Duration": 15000
+        },
+        {
+            "Vector": {
+                "XCoord": 0.9937010014783838,
+                "YCoord": 0.017677948716094054,
+                "Magnitude": 0.8864603826452964,
+                "AngleInRadian": 0
+            },
+            "Start": 885000,
+            "Duration": 6860
+        }
+    ]
+}
