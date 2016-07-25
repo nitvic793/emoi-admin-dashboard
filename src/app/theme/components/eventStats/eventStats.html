@@ -18,12 +18,21 @@
       </div>
       <canvas id="line" class="chart chart-line" chart-data="eventStatsData" chart-labels="eventlabels" chart-legend="false" chart-series="eventseries"
         chart-click="changeData"></canvas>
-      <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
+      <div ng-if="eventlabels.length>0">
+        <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
+      </div>
     </div>
     <div class="row" ng-if="graphState=='Spider'">
+      <div ng-if="!eventlabels || eventlabels.length==0">
+        <p>
+          {{statsStatus}}
+        </p>
+      </div>
       <canvas id="radar" class="chart chart-radar" chart-data="spiderData" chart-options="spiderOptions" chart-labels="spiderLabels">
       </canvas>
-      <rzslider rz-slider-model="spiderSlider.value" rz-slider-options="spiderSlider.options" rz-slider-onchange="onSpiderSliderChange()"></rzslider>
+      <div ng-if="eventlabels.length>0">
+        <rzslider rz-slider-model="spiderSlider.value" rz-slider-options="spiderSlider.options" rz-slider-onchange="onSpiderSliderChange()"></rzslider>
+      </div>
     </div>
   </div>
 </div>
