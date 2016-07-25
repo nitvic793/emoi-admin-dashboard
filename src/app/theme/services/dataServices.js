@@ -108,6 +108,15 @@
             });
         };
         
+        this.stopDevicesForEvent = function(eventCode, cb) {
+            post(config.devices + '/StopForEvent/' + eventCode, {}, function(data, err) {
+                console.log('Stop Devices', data);
+                if (cb) {
+                    cb(data, err);
+                }
+            });
+        };
+        
         this.startDevices = function(deviceList, cb){
           post(config.devices+'/Start', deviceList, function(data,err){
             if(cb){

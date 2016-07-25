@@ -18,7 +18,7 @@
       </div>
       <canvas id="line" class="chart chart-line" chart-data="eventStatsData" chart-labels="eventlabels" chart-legend="false" chart-series="eventseries"
         chart-click="changeData"></canvas>
-      <!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
+      <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
     </div>
     <div class="row" ng-if="graphState=='Spider'">
       <canvas id="radar" class="chart chart-radar" chart-data="spiderData" chart-options="spiderOptions" chart-labels="spiderLabels">

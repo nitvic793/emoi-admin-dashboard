@@ -82,7 +82,20 @@
             $scope.eventseries = series;
             $scope.eventStatsData = graphData;
             $scope.spiderData = [spiderData[0]];
-
+            setGraphForInterval(0, 5);
+            $scope.slider = {
+              minValue: 0,
+              maxValue: 5,
+              options: {
+                floor: 0,
+                ceil: sliderIntervals,
+                step: 1,
+                onChange: function () {
+                  setGraphForInterval($scope.slider.minValue, $scope.slider.maxValue);
+                }
+              }
+            };
+            $scope.sliderIntervals = sliderIntervals;
             $scope.spiderSlider = {
               value: 0,
               options: {
@@ -106,29 +119,67 @@
               $scope.statsStatus = 'Nothing to show here :(';
             }
           }
+        };
+        $scope.sliderIntervals = 10;
 
+        var setGraphForInterval = function (start, end) {
+          var data = $scope.rawGraphData;
+          var labels = [];
+          var series = [];
+          var graphData = [];
+          console.log(start, end, data);
+          try {
+            for (var i = start; i < end; ++i) {
+              labels.push(data.Anger[i].Start / 10000);
+            }
+
+            for (var key in data) {
+              series.push(key);
+              var tempData = [];
+              for (var i = start; i < end; ++i) {
+                tempData.push(data[key][i].AverageFeelingValue * 100);
+              }
+              graphData.push(tempData);
+            }
+            $scope.eventlabels = labels;
+            $scope.eventseries = series;
+            $scope.eventStatsData = graphData;
+          }
+          catch (e) {
+          }
+          finally {
+            if (!labels || labels.length == 0) {
+              $scope.statsStatus = 'Nothing to show here :(';
+            }
+          }
+        }
+
+        $scope.slider = {
+          minValue: 0,
+          maxValue: 5,
+          options: {
+            floor: 0,
+            ceil: $scope.sliderIntervals,
+            step: 1,
+            onChange: function () {
+              setGraphForInterval($scope.slider.minValue, $scope.slider.maxValue);
+            }
+          }
         };
 
+
+        $scope.rawGraphData = {};
         data.getEventResults(currentEvent.EventCode, function (data) {
+          $scope.rawGraphData = data;
           console.log(data);
           setGraph(data);
         });
-        $scope.slider = {
-          value: 50,
-          options: {
-            floor: 0,
-            ceil: 100,
-            step: 1,
-            minLimit: 0,
-            maxLimit: 90
-          }
-        };
-        
+
         $scope.graphState = 'Line';
-        $scope.graphStateOption = 'Line Graph Mode';
-        $scope.toggleGraph = function(){
-          $scope.graphState = ($scope.graphState=='Line')?'Spider':'Line';
-          $scope.graphStateOption = ($scope.graphState=='Line')?'Spider Graph Mode':'Line Graph Mode';
+        $scope.graphStateOption = 'Spider Graph Mode';
+        $scope.toggleGraph = function () {
+          $scope.graphState = ($scope.graphState == 'Line') ? 'Spider' : 'Line';
+          $scope.graphStateOption = ($scope.graphState == 'Line') ? 'Spider Graph Mode' : 'Line Graph Mode';
         };
       }
 
