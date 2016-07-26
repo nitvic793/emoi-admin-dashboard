@@ -59,7 +59,8 @@
     "angular-bootstrap-datetimepicker": "^1.0.1",
     "angularjs-slider": "^5.4.1",
     "angular-nvd3": "^1.0.8",
-    "angularjs-nvd3-directives": "^0.0.7"
+    "angularjs-nvd3-directives": "^0.0.7",
+    "angular-spinner": "^0.8.1"
   },
   "resolutions": {
     "angular": "~1.4.8"

@@ -44,15 +44,6 @@
            
     };
 
-    $scope.onEventSelectionChange = function($event){
-      var checkBox = $event.target;
-      if(checkBox.checked === false)
-      {
-        $scope.SelectAll = false;
-      }
-           
-    };
-
   }
 
 })();

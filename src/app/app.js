@@ -14,7 +14,8 @@ angular.module('BlurAdmin', [
   'angular-progress-button-styles',
   'rzModule',
   'nvd3ChartDirectives',
-
+  'angularSpinner',
+  
   'BlurAdmin.theme',
   'BlurAdmin.pages'
 ])

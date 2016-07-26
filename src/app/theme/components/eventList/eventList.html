@@ -1,10 +1,11 @@
+<span us-spinner loading></span>
 <div class="panel full-invisible with-scroll tree-panel" zoom-in>
   <div class="{{theme.color}}-1">
     <div class="panel-options">
       <a href="" class="white" ng-click="addEventPage()">
         <span class="glyphicon glyphicon-plus"></span> Add
       </a>
-      <a href="" class="white right" ng-click="removeEvent()">
+      <a href="" class="white right" ng-click="deleteEvents()">
         <span class="glyphicon glyphicon-remove"></span> Remove
       </a>
     </div>
@@ -20,7 +21,7 @@
             <th>Event</th>
             <th class="align-right">Start</th>
             <th class="align-right">End</th>
-            <th class="align-right"><input type="checkbox" ng-model="SelectAll" ng-click="onAllEventSelectionChange(item)"/></th>
+            <th class="align-right"><input type="checkbox" ng-model="selectAll" ng-change="onEventSelectionChange()"/></th>
           </tr>
         </thead>
         <tbody>
@@ -28,7 +29,7 @@
             <td ng-class="nowrap">{{item.EventName}}</td>
             <td class="align-right">{{item.StartDateTime | date:'d MMM yyyy, h:mm a'}}</td>
             <td class="align-right">{{item.EndDateTime | date:'d MMM yyyy, h:mm a'}}</td>
-            <td class="align-right"><input type="checkbox" ng-model="Select" ng-click=onEventSelectionChange($event)/></td>
+            <td class="align-right"><input type="checkbox" ng-model="item.isSelected" /></td>
           </tr>
         </tbody>
       </table>

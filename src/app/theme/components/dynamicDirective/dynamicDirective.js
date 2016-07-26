@@ -62,8 +62,6 @@
           });
         }
 
-
-
         pageAddEvents.forEach(function (value, index, array) {
           registerEvent(value.name, value.css, value.directive);
         });
