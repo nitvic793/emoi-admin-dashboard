@@ -39,9 +39,9 @@ $angle-right: "\f101";
   &.selected:not(.with-sub-menu) {
     background-color: $primary;
     a.al-sidebar-list-link {
-      color: $sidebar-text;
+      color: #010b3d;
       b {
-        color: $sidebar-text;
+        color: #010b3d;
       }
     }
   }
@@ -100,6 +100,7 @@ a.al-sidebar-list-link {
     color: $sidebar-text;
     transition: transform 0.2s linear;
   }
+  
 }
 
 .slimScrollBar, .slimScrollRail {

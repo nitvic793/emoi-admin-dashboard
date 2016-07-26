@@ -35,8 +35,11 @@
           { name: 'remove-device-list', css: 'col-md-6', directive: 'devicelist' },
           { name: 'remove-device-event', css: 'col-md-6', directive: 'deviceaddtoevent' },
           { name: 'remove-event-devices', css: 'col-md-6', directive: 'eventdevices' },
-          { name: 'remove-event-add-devices', css: 'col-md-6', directive: 'eventadddevices' }
+          { name: 'remove-event-add-devices', css: 'col-md-6', directive: 'eventadddevices' },
+          {name: 'toggle-event-remove-checkbox', css: 'col-md-6', directive: 'eventremovetoggle'}
         ];
+
+       
 
 
         var currentPages = new Array();

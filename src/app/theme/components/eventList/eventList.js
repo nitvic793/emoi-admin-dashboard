@@ -6,7 +6,7 @@
   'use strict';
 
   angular.module('BlurAdmin.theme.components')
-    .directive('eventlist', ['$location', '$state', 'dataServices', eventlist]);
+    .directive('eventlist', ['$location', '$state', 'dataServices', eventlist])
 
   /** @ngInject */
   function eventlist($location, $state, data) {
@@ -30,7 +30,9 @@
         var loadData = function () {
           data.getEvents(function (response) {
             $scope.eventList = data.eventList;
+            
           });
+          
         }
         loadData();
         $scope.refreshEventList = loadData;
@@ -39,4 +41,7 @@
     };
   }
 
+
 })();
+
+

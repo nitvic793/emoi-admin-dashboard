@@ -15,6 +15,9 @@
       color:'green'
     };
     
+    $scope.Select = false;
+    $scope.SelectAll = false;
+    
     $scope.addNewNode = function (params) {
       $scope.$broadcast('add-event-detail');
     };
@@ -31,9 +34,25 @@
     };
     
     $scope.onEventItemClick = function(item){
+      
       data.currentEvent = item;
       $scope.$broadcast('add-event-detail');      
-    }
+    };
+
+     $scope.onAllEventSelectionChange = function(item){
+      $scope.Select = ($scope.SelectAll ? true: false);
+           
+    };
+
+    $scope.onEventSelectionChange = function($event){
+      var checkBox = $event.target;
+      if(checkBox.checked === false)
+      {
+        $scope.SelectAll = false;
+      }
+           
+    };
+
   }
 
 })();

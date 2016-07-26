@@ -9,7 +9,7 @@
       </a>
     </div>
     <div class="custom-panel-header">
-      <h1>Event List</h1>
+      <h1>All Events</h1>
     </div>
   </div>
   <div class="panel-body body-green-1">
@@ -20,15 +20,15 @@
             <th>Event</th>
             <th class="align-right">Start</th>
             <th class="align-right">End</th>
-            <th class="align-right">Status</th>
+            <th class="align-right"><input type="checkbox" ng-model="SelectAll" ng-click="onAllEventSelectionChange(item)"/></th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="item in eventList" class="no-top-border" ng-click="onEventItemClick(item)">
+          <tr ng-repeat="item in eventList" class="no-top-border" ng-dblclick="onEventItemClick(item)"> 
             <td ng-class="nowrap">{{item.EventName}}</td>
             <td class="align-right">{{item.StartDateTime | date:'d MMM yyyy, h:mm a'}}</td>
             <td class="align-right">{{item.EndDateTime | date:'d MMM yyyy, h:mm a'}}</td>
-            <td class="align-right">{{item.Status}}</td>
+            <td class="align-right"><input type="checkbox" ng-model="Select" ng-click=onEventSelectionChange($event)/></td>
           </tr>
         </tbody>
       </table>
