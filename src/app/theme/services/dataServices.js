@@ -157,12 +157,21 @@
                 }
             });
         };
-        
-        this.deleteEvents = function(eventCodes, cb){
-            httpDelete(config.events, eventCodes, function(data, err){
-               if(cb){
-                   cb(data, err);
-               } 
+
+        this.getEventEmotionResults = function (eventCode, cb) {
+            get(config.events + '/emotionMap/' + eventCode, function (data, err) {
+                if (cb) {
+                    cb(data);
+                }
+            });
+        };
+
+
+        this.deleteEvents = function (eventCodes, cb) {
+            httpDelete(config.events, eventCodes, function (data, err) {
+                if (cb) {
+                    cb(data, err);
+                }
             });
         }
 
