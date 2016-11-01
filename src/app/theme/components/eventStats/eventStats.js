@@ -6,10 +6,10 @@
   'use strict';
 
   angular.module('BlurAdmin.theme.components')
-    .directive('eventstats', ['$location', '$state', 'dataServices', eventStats]);
+    .directive('eventstats', ['$location', '$state', 'dataServices','$uibModal', eventStats]);
 
   /** @ngInject */
-  function eventStats($location, $state, data) {
+  function eventStats($location, $state, data, $uibModal) {
     return {
       restrict: 'E',
       templateUrl: 'app/theme/components/eventStats/eventStats.html',
@@ -18,6 +18,7 @@
           $scope.count--;
           element.parent().remove();
         });
+
         $scope.$watch(function () {
           $scope.activePageTitle = $state.current.title;
         });
@@ -28,6 +29,19 @@
 
         $scope.addEventPage = function openCreateEventPage() {
           $scope.$broadcast('add-event-create');
+        };
+
+        $scope.open = function (page, size) {
+          $uibModal.open({
+            animation: true,
+            templateUrl: page,
+            size: size,
+            resolve: {
+              items: function () {
+                return $scope.items;
+              }
+            }
+          });
         };
 
         var currentEvent = data.currentEvent;
@@ -174,6 +188,7 @@
 
         $scope.rawGraphData = {};
         data.getEventResults(currentEvent.EventCode, function (data) {
+          currentEvent.rawGraphData = data;
           $scope.rawGraphData = data;
           console.log(data);
           setGraph(data);

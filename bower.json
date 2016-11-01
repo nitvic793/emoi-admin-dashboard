@@ -15,6 +15,14 @@
     "tests"
   ],
   "dependencies": {
+    "videogular": "^1.4.4",
+    "videogular-themes-default": "^1.4.4",
+    "videogular-controls": "^1.4.4",
+    "videogular-buffering": "^1.4.4",
+    "videogular-overlay-play": "^1.4.4",
+    "videogular-poster": "^1.4.4",
+    "videogular-ima-ads": "^1.4.4",
+    "videogular-angulartics": "^1.4.4",
     "Chart.js": "~1.0.2",
     "Ionicons": "ionicons#~2.0.1",
     "amcharts": "~3.15.2",
