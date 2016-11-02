@@ -43,4 +43,18 @@ angular.module('BlurAdmin', [
           $rootScope.showSidebar = true;
         }
       })
-  });
+  })
+  .config(['ChartJsProvider', function (ChartJsProvider) {
+    // Configure all charts
+    ChartJsProvider.setOptions({
+      colours: ['#FF5252', '#FF8A80'],
+      responsive: true
+    });
+    // Configure all line charts
+    ChartJsProvider.setOptions('Line', {
+      animation: false,
+      labelsFilter: function (value, index) {
+        return (index + 1) % 5 !== 0;
+      }
+    });
+  }]);

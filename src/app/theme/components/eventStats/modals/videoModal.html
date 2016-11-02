@@ -1,4 +1,4 @@
-<div class="modal-content" ng-controller="VideoModalCtrl">
+<div class="modal-content height-limit" ng-controller="VideoModalCtrl">
 	<div class="modal-header">
 		<button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
       <em class="ion-ios-close-empty sn-link-close"></em>
@@ -6,8 +6,8 @@
 		<h4 class="modal-title">Event Stats</h4>
 	</div>
 	<div class="modal-body">
-		<div>
-			<videogular vg-theme="config.theme" vg-update-time="onUpdate($currentTime, $duration)">
+		<div style="height:300px">
+			<videogular vg-theme="config.theme" vg-height="config.height" vg-width="400" vg-responsive="config.responsive" vg-update-time="onUpdate($currentTime, $duration)">
 				<vg-media vg-src="config.sources">
 				</vg-media>
 				<vg-controls>
@@ -32,6 +32,6 @@
 		</div>
 	</div>
 	<div class="modal-footer">
-		<button type="button" class="btn btn-primary" ng-click="$dismiss()">Save changes</button>
+		<button type="button" class="btn btn-primary" ng-click="$dismiss()">Close</button>
 	</div>
 </div>

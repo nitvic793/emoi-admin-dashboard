@@ -13,6 +13,15 @@
     $scope.mediaUrl = "";
     $scope.config = { sources: [] };
     $scope.config.theme = 'bower_components/videogular-themes-default/videogular.css'
+    $scope.currentTime = 0;
+    $scope.timeLeft = 0;
+    $scope.eventlabels = [];
+    $scope.eventStatsData = [];
+    $scope.eventseries = [];
+    $scope.rawGraphData = data.currentEvent.rawGraphData;
+    $scope.config.height = 200;
+    $scope.config.responsive = false;
+
     data.getEventEmotionResults(data.currentEvent.EventCode, function (result) {
       $scope.raw = result[0].MediaURL;
       console.log(result[0].MediaURL);
@@ -29,18 +38,17 @@
       $scope.eventseries = graphData;
     }
 
-    $scope.eventlabels = [];
-    $scope.eventStatsData = [];
-    $scope.eventseries = [];
-    $scope.rawGraphData = data.currentEvent.rawGraphData;
-    //console.log(data.currentEvent.rawGraphData);
+
 
     var getDataSet = function (time) {
       var video = $scope.currentItem;
       var data = $scope.rawGraphData;
       var labels = [];
+      var series = [];
+      var graphData = [];
       for (var i = 0; i < data.Anger.length; ++i) {
-        var videotime = data.Anger[i].Start / 100000;
+        var secondDivideValue = 100000;
+        var videotime = data.Anger[i].Start / secondDivideValue;
         //if(videotime<time){
         labels.push(videotime);
         // }
@@ -49,21 +57,25 @@
         //}
       }
 
-      var series = [];
-      var graphData = [];
       for (var key in data) {
         series.push(key);
         var tempData = [];
         for (var i = 0; i < data[key].length; ++i) {
-          var videotime = data[key][i].Start / 10000;
+          var videotime = data[key][i].Start / secondDivideValue;
           if (videotime <= time)
             tempData.push(data[key][i].AverageFeelingValue * 100);
         }
         graphData.push(tempData);
       }
-      console.log(graphData);
-      if (time != 0)
-        updateGraph(labels, series, graphData);
+      try {
+        $scope.eventlabels = labels;
+        $scope.eventseries = series;
+        $scope.eventStatsData = graphData;
+        // if (time != 0)
+        //   updateGraph(labels, series, graphData);
+      } catch (e) {
+
+      }
     }
 
     var setGraph = function setGraph(results, cb) {
@@ -76,7 +88,7 @@
       console.log(results);
       try {
         for (var i = 0; i < data.Anger.length; ++i) {
-          labels.push(data.Anger[i].Start / 10000);
+          labels.push(data.Anger[i].Start / 100000);
         }
         var sliderIntervals = data.Anger.length;
 
@@ -97,11 +109,11 @@
           }
           graphData.push(tempData);
         }
-       
+
         $scope.eventlabels = labels;
         $scope.eventseries = series;
         $scope.eventStatsData = graphData;
-        
+
       }
       catch (e) {
       }
