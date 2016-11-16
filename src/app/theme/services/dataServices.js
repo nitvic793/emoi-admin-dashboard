@@ -7,10 +7,11 @@
 
     angular.module('BlurAdmin.theme')
         .service('dataServices', ['$http', '$rootScope', data]);
-    var base = 'http://emoiserver.azurewebsites.net/api/';
+    var base = 'http://emoiwebapi.azurewebsites.net/api/';
     var config = {
         events: base + 'events',
-        devices: base + 'devices'
+        devices: base + 'devices',
+        sessions: base + 'session'
     };
 
     /** @ngInject */
@@ -19,9 +20,11 @@
         $rootScope.data = self;
         this.eventList = [];
         this.currentEvent = {};
+        this.currentSession = {};
         this.deviceList = [];
         this.currentDevice = {};
         this.freeDevices = [];
+        this.sessionList = [];
 
         function get(url, cb) {
             $http.get(url)
@@ -65,6 +68,17 @@
             f.cb = cb;
             get(config.events, function (data) {
                 self.eventList = data;
+                if (f.cb) {
+                    f.cb(data);
+                }
+            });
+        };
+
+         this.getSessions = function (cb) {
+            var f = this;
+            f.cb = cb;
+            get(config.sessions, function (data) {
+                self.sessionList = data;
                 if (f.cb) {
                     f.cb(data);
                 }
@@ -160,6 +174,14 @@
 
         this.getEventEmotionResults = function (eventCode, cb) {
             get(config.events + '/emotionMap/' + eventCode, function (data, err) {
+                if (cb) {
+                    cb(data);
+                }
+            });
+        };
+
+        this.getSessionEmotionResults = function (eventCode, cb) {
+            get(config.sessions + '/emotionMap/' + eventCode, function (data, err) {
                 if (cb) {
                     cb(data);
                 }

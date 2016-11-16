@@ -45,6 +45,7 @@
         });
 
         $scope.event = data.currentEvent;
+        $scope.session = data.currentSession;
         var current = moment();
         $scope.statusBox = 'info';
         $scope.startDate = data.currentEvent.StartDateTime;

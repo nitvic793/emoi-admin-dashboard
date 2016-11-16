@@ -13,7 +13,7 @@
     $scope.mediaUrl = "";
     $scope.config = { sources: [] };
     $scope.config.theme = 'bower_components/videogular-themes-default/videogular.css'
-    data.getEventEmotionResults(data.currentEvent.EventCode, function (result) {
+    data.getSessionEmotionResults(data.currentSession.SessionName, function (result) {
       $scope.raw = result[0].MediaURL;
       console.log(result[0].MediaURL);
       var sources = [
@@ -32,7 +32,7 @@
     $scope.eventlabels = [];
     $scope.eventStatsData = [];
     $scope.eventseries = [];
-    $scope.rawGraphData = data.currentEvent.rawGraphData;
+    $scope.rawGraphData = data.currentSession.rawGraphData;
     //console.log(data.currentEvent.rawGraphData);
 
     var getDataSet = function (time) {
@@ -40,7 +40,7 @@
       var data = $scope.rawGraphData;
       var labels = [];
       for (var i = 0; i < data.Anger.length; ++i) {
-        var videotime = data.Anger[i].Start / 100000;
+        var videotime = data.Anger[i].Start / 10000;
         //if(videotime<time){
         labels.push(videotime);
         // }
@@ -62,8 +62,17 @@
         graphData.push(tempData);
       }
       console.log(graphData);
-      if (time != 0)
-        updateGraph(labels, series, graphData);
+      if (time != 0) {
+        try{
+        $scope.eventlabels = labels;
+        $scope.eventStatsData = series;
+        $scope.eventseries = graphData;
+        }
+        catch(e){
+
+        }
+        //updateGraph(labels, series, graphData);
+      }
     }
 
     var setGraph = function setGraph(results, cb) {
@@ -97,11 +106,11 @@
           }
           graphData.push(tempData);
         }
-       
+
         $scope.eventlabels = labels;
         $scope.eventseries = series;
         $scope.eventStatsData = graphData;
-        
+
       }
       catch (e) {
       }

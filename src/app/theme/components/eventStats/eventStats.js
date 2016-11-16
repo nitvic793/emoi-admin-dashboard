@@ -187,11 +187,18 @@
         }];
 
         $scope.rawGraphData = {};
-        data.getEventResults(currentEvent.EventCode, function (data) {
-          currentEvent.rawGraphData = data;
-          $scope.rawGraphData = data;
+        // data.getEventResults(currentEvent.EventCode, function (data) {
+        //   currentEvent.rawGraphData = data;
+        //   $scope.rawGraphData = data;
+        //   console.log(data);
+        //   setGraph(data);
+        // });
+
+        data.getSessionEmotionResults(data.currentSession.SessionName, function (data) {
+          currentEvent.rawGraphData = data[0].VideoEmotionResult.EmotionGraphValue;
+          $scope.rawGraphData = data[0].VideoEmotionResult.EmotionGraphValue;
           console.log(data);
-          setGraph(data);
+          setGraph(data[0].VideoEmotionResult.EmotionGraphValue);
         });
 
         $scope.graphState = 'Line';
