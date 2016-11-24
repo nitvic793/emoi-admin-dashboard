@@ -40,7 +40,7 @@
       var data = $scope.rawGraphData;
       var labels = [];
       for (var i = 0; i < data.Anger.length; ++i) {
-        var videotime = data.Anger[i].Start / 10000;
+        var videotime = data.Anger[i].Start / 100000;
         //if(videotime<time){
         labels.push(videotime);
         // }
@@ -55,24 +55,24 @@
         series.push(key);
         var tempData = [];
         for (var i = 0; i < data[key].length; ++i) {
-          var videotime = data[key][i].Start / 10000;
+          var videotime = data[key][i].Start / 100000;
           if (videotime <= time)
             tempData.push(data[key][i].AverageFeelingValue * 100);
         }
         graphData.push(tempData);
       }
       console.log(graphData);
-      if (time != 0) {
-        try{
-        $scope.eventlabels = labels;
-        $scope.eventStatsData = series;
-        $scope.eventseries = graphData;
-        }
-        catch(e){
 
-        }
-        //updateGraph(labels, series, graphData);
+      try {
+        $scope.eventlabels = labels;
+        $scope.eventStatsData = graphData ;
+        $scope.eventseries = series;
       }
+      catch (e) {
+
+      }
+      //updateGraph(labels, series, graphData);
+
     }
 
     var setGraph = function setGraph(results, cb) {

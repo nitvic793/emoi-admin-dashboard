@@ -1,6 +1,11 @@
 'use strict';
 
 angular.module('BlurAdmin', [
+  "com.2fdevs.videogular",
+  "com.2fdevs.videogular.plugins.controls",
+  "com.2fdevs.videogular.plugins.overlayplay",
+  "com.2fdevs.videogular.plugins.poster",
+  "com.2fdevs.videogular.plugins.buffering",
   'ngAnimate',
   'ui.bootstrap',
   'ui.sortable',
@@ -14,11 +19,6 @@ angular.module('BlurAdmin', [
   'angular-progress-button-styles',
   'rzModule',
   'angularSpinner',
-  "com.2fdevs.videogular",
-  "com.2fdevs.videogular.plugins.controls",
-  "com.2fdevs.videogular.plugins.overlayplay",
-  "com.2fdevs.videogular.plugins.poster",
-  "com.2fdevs.videogular.plugins.buffering",
 
   'BlurAdmin.theme',
   'BlurAdmin.pages'
