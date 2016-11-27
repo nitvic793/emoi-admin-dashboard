@@ -22,6 +22,8 @@
 			<div ng-if="eventlabels.length>0">
 				<rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
 			</div>
+			<canvas id="line" class="chart chart-line" chart-data="aData" chart-labels="aLabels" chart-legend="false" chart-series="aSeries"
+				chart-click="changeData"></canvas>
 		</div>
 		<div class="row" ng-if="graphState=='Spider'">
 			<div ng-if="!eventlabels || eventlabels.length==0">
@@ -41,6 +43,7 @@
 				<svg></svg>
 			</nvd3-scatter-chart>
 		</div>
+		
 		<button type="button" class="btn btn-success" data-toggle="modal" ng-click="open('/videoModal.html', 'lg')">
           Video
         </button>

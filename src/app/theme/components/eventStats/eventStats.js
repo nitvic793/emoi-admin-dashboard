@@ -45,7 +45,9 @@
         };
 
         var currentEvent = data.currentEvent;
-
+        $scope.aLabels = [];
+        $scope.aData = [];
+        $scope.aSeries = [];
         var updateGraph = function (labels, series, graphData, cb) {
           $scope.eventlabels = labels;
           $scope.eventStatsData = series;
@@ -95,6 +97,9 @@
             $scope.eventlabels = labels;
             $scope.eventseries = series;
             $scope.eventStatsData = graphData;
+            $scope.aLabels = labels;
+            $scope.aData = graphData;
+            $scope.aSeries = series;
             $scope.spiderData = [spiderData[0]];
             setGraphForInterval(0, 5);
             $scope.slider = {
