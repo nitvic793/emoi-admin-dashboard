@@ -10,7 +10,7 @@
       </a>
     </div>
     <div class="custom-panel-header">
-      <h1>All Events</h1>
+      <h1>All Sessions</h1>
     </div>
   </div>
   <div class="panel-body body-green-1">
@@ -19,16 +19,14 @@
         <thead>
           <tr class="black-muted-bg">
             <th>Event</th>
-            <th class="align-right">Start</th>
-            <th class="align-right">End</th>
+            <th class="align-right">Time</th>
             <th class="align-right"><input type="checkbox" ng-model="selectAll" ng-change="onEventSelectionChange()"/></th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="item in eventList" class="no-top-border" ng-dblclick="onEventItemClick(item)"> 
-            <td ng-class="nowrap">{{item.EventName}}</td>
-            <td class="align-right">{{item.StartDateTime | date:'d MMM yyyy, h:mm a'}}</td>
-            <td class="align-right">{{item.EndDateTime | date:'d MMM yyyy, h:mm a'}}</td>
+            <td ng-class="nowrap">{{item.SessionName}}</td>
+            <td class="align-right">{{item.DateTime | date:'d MMM yyyy, h:mm a'}}</td>
             <td class="align-right"><input type="checkbox" ng-model="item.isSelected" /></td>
           </tr>
         </tbody>

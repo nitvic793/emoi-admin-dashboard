@@ -34,7 +34,7 @@
     };
     
     $scope.onEventItemClick = function(item){
-      
+      data.currentSession = item;
       data.currentEvent = item;
       $scope.$broadcast('add-event-detail');      
     };

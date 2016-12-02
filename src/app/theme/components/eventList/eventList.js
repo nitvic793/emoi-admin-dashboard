@@ -28,8 +28,8 @@
 
         $scope.eventList = data.eventList;
         var loadData = function () {
-          data.getEvents(function (response) {
-            $scope.eventList = data.eventList;
+          data.getSessions(function (response) {
+            $scope.eventList = data.sessionList;
 
           });
 

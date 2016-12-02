@@ -31,6 +31,7 @@
 
     $scope.onEventItemClick = function (item) {
       data.currentEvent = item;
+      data.currentSession = item;
       $scope.$broadcast('add-event-stats');
     }
   }

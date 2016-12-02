@@ -45,7 +45,9 @@
         };
 
         var currentEvent = data.currentEvent;
-
+        $scope.aLabels = [];
+        $scope.aData = [];
+        $scope.aSeries = [];
         var updateGraph = function (labels, series, graphData, cb) {
           $scope.eventlabels = labels;
           $scope.eventStatsData = series;
@@ -95,6 +97,9 @@
             $scope.eventlabels = labels;
             $scope.eventseries = series;
             $scope.eventStatsData = graphData;
+            $scope.aLabels = labels;
+            $scope.aData = graphData;
+            $scope.aSeries = series;
             $scope.spiderData = [spiderData[0]];
             setGraphForInterval(0, 5);
             $scope.slider = {
@@ -187,11 +192,18 @@
         }];
 
         $scope.rawGraphData = {};
-        data.getEventResults(currentEvent.EventCode, function (data) {
-          currentEvent.rawGraphData = data;
-          $scope.rawGraphData = data;
+        // data.getEventResults(currentEvent.EventCode, function (data) {
+        //   currentEvent.rawGraphData = data;
+        //   $scope.rawGraphData = data;
+        //   console.log(data);
+        //   setGraph(data);
+        // });
+
+        data.getSessionEmotionResults(data.currentSession.SessionName, function (data) {
+          currentEvent.rawGraphData = data[0].VideoEmotionResult.EmotionGraphValue;
+          $scope.rawGraphData = data[0].VideoEmotionResult.EmotionGraphValue;
           console.log(data);
-          setGraph(data);
+          setGraph(data[0].VideoEmotionResult.EmotionGraphValue);
         });
 
         $scope.graphState = 'Line';

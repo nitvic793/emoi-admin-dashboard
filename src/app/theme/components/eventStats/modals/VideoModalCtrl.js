@@ -13,6 +13,7 @@
     $scope.mediaUrl = "";
     $scope.config = { sources: [] };
     $scope.config.theme = 'bower_components/videogular-themes-default/videogular.css'
+<<<<<<< HEAD
     $scope.currentTime = 0;
     $scope.timeLeft = 0;
     $scope.eventlabels = [];
@@ -23,6 +24,9 @@
     $scope.config.responsive = false;
 
     data.getEventEmotionResults(data.currentEvent.EventCode, function (result) {
+=======
+    data.getSessionEmotionResults(data.currentSession.SessionName, function (result) {
+>>>>>>> e97e1fe5bf9734e196613bb40d2c9b7a71326f6c
       $scope.raw = result[0].MediaURL;
       console.log(result[0].MediaURL);
       var sources = [
@@ -38,7 +42,15 @@
       $scope.eventseries = graphData;
     }
 
+<<<<<<< HEAD
 
+=======
+    $scope.eventlabels = [];
+    $scope.eventStatsData = [];
+    $scope.eventseries = [];
+    $scope.rawGraphData = data.currentSession.rawGraphData;
+    //console.log(data.currentEvent.rawGraphData);
+>>>>>>> e97e1fe5bf9734e196613bb40d2c9b7a71326f6c
 
     var getDataSet = function (time) {
       var video = $scope.currentItem;
@@ -61,12 +73,17 @@
         series.push(key);
         var tempData = [];
         for (var i = 0; i < data[key].length; ++i) {
+<<<<<<< HEAD
           var videotime = data[key][i].Start / secondDivideValue;
+=======
+          var videotime = data[key][i].Start / 100000;
+>>>>>>> e97e1fe5bf9734e196613bb40d2c9b7a71326f6c
           if (videotime <= time)
             tempData.push(data[key][i].AverageFeelingValue * 100);
         }
         graphData.push(tempData);
       }
+<<<<<<< HEAD
       try {
         $scope.eventlabels = labels;
         $scope.eventseries = series;
@@ -76,6 +93,20 @@
       } catch (e) {
 
       }
+=======
+      console.log(graphData);
+
+      try {
+        $scope.eventlabels = labels;
+        $scope.eventStatsData = graphData ;
+        $scope.eventseries = series;
+      }
+      catch (e) {
+
+      }
+      //updateGraph(labels, series, graphData);
+
+>>>>>>> e97e1fe5bf9734e196613bb40d2c9b7a71326f6c
     }
 
     var setGraph = function setGraph(results, cb) {
