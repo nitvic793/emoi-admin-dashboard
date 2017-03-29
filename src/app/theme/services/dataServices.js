@@ -7,7 +7,7 @@
 
     angular.module('BlurAdmin.theme')
         .service('dataServices', ['$http', '$rootScope', data]);
-    var base = 'http://emoiwebapi.azurewebsites.net/api/';
+    var base = 'http://localhost:3174/api/';
     var config = {
         events: base + 'events',
         devices: base + 'devices',
@@ -195,14 +195,18 @@
                     cb(data, err);
                 }
             });
-        }
+        };
+
+        this.deleteSessions = function (sessions, cb) {
+            httpDelete(config.sessions, sessions, function (data, err) {
+                if (cb) {
+                    cb(data, err);
+                }
+            });
+        };
 
         this.updateEvent = function (event, cb) {
             post(config.events + '/edit', event, cb);
-        }
-
-        this.getEvents();
-        this.getFreeDevices();
-        this.getAllDevices();
+        };
     }
 })();

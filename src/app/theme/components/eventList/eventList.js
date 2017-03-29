@@ -30,10 +30,9 @@
         var loadData = function () {
           data.getSessions(function (response) {
             $scope.eventList = data.sessionList;
-
           });
-
         }
+
         loadData();
         $scope.refreshEventList = loadData;
         $scope.selectAll = false;
@@ -51,15 +50,15 @@
           }
         };
 
-        $scope.deleteEvents = function () {
+        $scope.deleteSessions = function () {
           var toDelete = [];
           for (var i = 0; i < $scope.eventList.length; ++i) {
             if ($scope.eventList[i].isSelected) {
-              toDelete.push($scope.eventList[i].EventCode);
+              toDelete.push($scope.eventList[i].SessionName);
             }
           }
-          data.deleteEvents(toDelete, function (response, err) {
-            console.log('Deleted :' + response);
+          data.deleteSessions(toDelete, function (response, err) {
+            console.log('Deleted :' + response, err, toDelete);
             if (err) {
               $scope.toastOptions.type = 'error';
               $scope.toastOptions.title = "Error";
